@@ -8,12 +8,15 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { StyleSheet, Image } from 'react-native';
 
 import ProfileScreen from '../Screens/ProfileScreen';
+import WalletOverview from '../Screens/WalletOverview';
+import WalletLocali from '../Screens/WalletLocali';
 
 const ProfileStack = createStackNavigator();
 function ProfileStackComponent() {
     return (
         <ProfileStack.Navigator headerMode="float">
             <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+            <ProfileStack.Screen name="Profile" component={WalletOverview} />
         </ProfileStack.Navigator>
     );
 }
@@ -30,7 +33,9 @@ export default function AppNavigation() {
     return (
         <NavigationContainer theme={MyTheme}>
             <ProfileStack.Navigator initialRouteName='Profile'>
-                <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+                {/*<ProfileStack.Screen name="Profile" component={ProfileScreen} /> */}
+                {/*<ProfileStack.Screen name="WalletOverview" component={WalletOverview} />*/}
+                <ProfileStack.Screen name="WalletLocali" component={WalletLocali} />
             </ProfileStack.Navigator>
         </NavigationContainer>
     );

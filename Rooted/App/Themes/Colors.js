@@ -2,6 +2,7 @@ const Colors = {
     darkGreen: '#006203',
     grassGreen: '#67a139',
     emeraldGreen: '#4cb056',
+    lightGrass: '#A5BE27',
     mintGreen: '#c4e4c7',
     lightGrey: '#E5E5E5',
     mediumGrey: '#B0B0B0',
