@@ -1,16 +1,43 @@
-// import React from 'react';
-// import { Colors, Metrics } from '../Themes';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-// import { NavigationContainer } from '@react-navigation/native'
-// import { createStackNavigator } from '@react-navigation/stack'
-// import { StyleSheet, Image } from 'react-native';
+/* This file contains the app's navigation */
 
-// // import FeedScreen from '../Screens/FeedScreen;
-// // import ActionScreen from '../Screens/ActionScreen;
-// // import ActionScreen from '../Screens/LogActionScreen;
-// // import ActionScreen from '../Screens/CustomActionScreen;
-// // import each screen as we go
+import React from 'react';
+import { Colors, Metrics } from '../Themes';
+//import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { StyleSheet, Image } from 'react-native';
 
+import ProfileScreen from '../Screens/ProfileScreen';
+
+const ProfileStack = createStackNavigator();
+function ProfileStackComponent() {
+    return (
+        <ProfileStack.Navigator headerMode="float">
+            <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+        </ProfileStack.Navigator>
+    );
+}
+
+const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        background: 'white',
+    },
+};
+
+export default function AppNavigation() {
+    return (
+        <NavigationContainer theme={MyTheme}>
+            <ProfileStack.Navigator initialRouteName='Profile'>
+                <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+            </ProfileStack.Navigator>
+        </NavigationContainer>
+    );
+}
+
+
+/* For later */
 // const FeedStack = createStackNavigator();
 // function FeedStackComponent() {
 //     return (
