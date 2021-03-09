@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
     balance: {
         fontSize: 50,
         marginTop: 20, 
-        color: Colors.lightGrass,
+        color: Colors.grassGreen,
     },
     redeemButton: {
-        width: Metrics.screenWidth * 0.4,
-        height: 35,
+        width: 148.9,
+        height: 38.24,
         borderRadius: 20,
         backgroundColor: Colors.lightGrass,
         margin: 20,

@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { StyleSheet, Image } from 'react-native';
 
 /* Rewards + Profile Screens */
-import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance } from '../Screens/Rewards';
+import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview } from '../Screens/Rewards';
 
 const ProfileStack = createStackNavigator();
 // function ProfileStackComponent() {
@@ -35,8 +35,10 @@ export default function AppNavigation() {
                 {/* <ProfileStack.Screen name="Profile" component={ProfileScreen} />
                 <ProfileStack.Screen name="WalletOverview" component={WalletOverview} />
                 <ProfileStack.Screen name="WalletLocali" component={WalletLocali} />
-                <ProfileStack.Screen name="CongratsWon" component={CongratsWon} /> */}
-                <ProfileStack.Screen name="CongratsWon" component={CongratsBalance} />
+                <ProfileStack.Screen name="CongratsWon" component={CongratsWon} />
+                <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} /> */}
+                {/* <ProfileStack.Screen name="Stores" component={Stores} /> */}
+                <ProfileStack.Screen name="localiPreview" component={localiPreview} />
             </ProfileStack.Navigator>
         </NavigationContainer>
     );

@@ -8,6 +8,11 @@ const Images = {
     burger: require('../Images/burger.png'),
     stars: require('../Images/stars.png'),
     cycles: require('../Images/cycles.png'),
+    locali2: require('../Images/locali2.png'),
+    cycles2: require('../Images/cycles2.png'),
+    greenDream: require('../Images/greenDream.png'),
+    blurBackground: require('../Images/blurBackground.png'),
+    locali3: require('../Images/locali3.png'),
 }
 
 export default Images

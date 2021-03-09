@@ -9,8 +9,8 @@ export default function ProfileScreen() {
             <ScrollView>
                 <View style={styles.container}>
                     <View style={styles.userSection}>
-                        <Image source={Images.Clara} style={{ width: 75, height: 75, borderRadius: 75/2 }}></Image>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Clara MacAvoy</Text>
+                        <Image source={Images.Clara} style={{ width: 117, height: 118, borderRadius: 100 }}></Image>
+                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Clara MacAvoy</Text>
                     </View>
                     <View style={styles.statsOverviewSection}>
                         <View style={styles.pillView}>
@@ -29,7 +29,7 @@ export default function ProfileScreen() {
                             </View>
                         </View>
                         <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Sustainability Score</Text>
-                        <Text style={{ fontSize: 70 }}>94</Text>
+                        <Text style={{ fontSize: 75 }}>94</Text>
                         <Text style={{ fontSize: 15, color: Colors.darkGrey }}>up 5 points from last year</Text>
                     </View>
                     <View style={styles.percentageView}>
@@ -50,7 +50,7 @@ export default function ProfileScreen() {
                         </View>
                     </View>
                     <View style={styles.walletSection}>
-                        <Text style={{ fontSize: 35, textDecorationLine: 'underline' }}>Wallet</Text>
+                        <Text style={{ fontSize: 30, textDecorationLine: 'underline' }}>Wallet</Text>
                         <Image source={Images.wallet} style={{ marginTop: 10, width: Metrics.screenWidth * 0.9, height: 200, resizeMode: 'contain' }}/>
                     </View>
                     
@@ -70,39 +70,38 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         width: 200,
-        height: 110,
+        height: 160,
         marginTop: 20,
         marginBottom: 10,
     },
     statsOverviewSection: {
         justifyContent: 'flex-start',
         alignItems: 'center',
-        height: 200,
+        height: 220,
         width: Metrics.screenWidth * 0.9,
-        // borderColor: 'black',
-        // borderWidth: 1,
     },
     pillView: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         width: Metrics.screenWidth * 0.9,
-        height: 30,
-        margin: 10,
+        height: 40,
+        marginTop: 10,
+        marginBottom: 20,
     },
     timePill: {
-        height: 20,
-        width: 75,
-        borderRadius: 10,
+        height: 24.14,
+        width: 92.18,
+        borderRadius: 46.09,
         backgroundColor: 'white',
         margin: 5, 
     },
     pillText: {
         fontSize: 12,
-        marginTop: 1,
+        marginTop: 3,
         textAlign: 'center',
     },
     percentageView: {
-        height: 200,
+        height: 220,
         width: Metrics.screenWidth * 0.9,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     walletSection: {
-        marginTop: 10,
+        marginTop: 5,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         width: Metrics.screenWidth * 0.9,
