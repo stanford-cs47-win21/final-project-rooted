@@ -7,19 +7,18 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { StyleSheet, Image } from 'react-native';
 
-import ProfileScreen from '../Screens/ProfileScreen';
-import WalletOverview from '../Screens/WalletOverview';
-import WalletLocali from '../Screens/WalletLocali';
+/* Rewards + Profile Screens */
+import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance } from '../Screens/Rewards';
 
 const ProfileStack = createStackNavigator();
-function ProfileStackComponent() {
-    return (
-        <ProfileStack.Navigator headerMode="float">
-            <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-            <ProfileStack.Screen name="Profile" component={WalletOverview} />
-        </ProfileStack.Navigator>
-    );
-}
+// function ProfileStackComponent() {
+//     return (
+//         <ProfileStack.Navigator headerMode="float">
+//             <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+//             <ProfileStack.Screen name="Profile" component={WalletOverview} />
+//         </ProfileStack.Navigator>
+//     );
+// }
 
 const MyTheme = {
     ...DefaultTheme,
@@ -33,9 +32,11 @@ export default function AppNavigation() {
     return (
         <NavigationContainer theme={MyTheme}>
             <ProfileStack.Navigator initialRouteName='Profile'>
-                {/*<ProfileStack.Screen name="Profile" component={ProfileScreen} /> */}
-                {/*<ProfileStack.Screen name="WalletOverview" component={WalletOverview} />*/}
+                {/* <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+                <ProfileStack.Screen name="WalletOverview" component={WalletOverview} />
                 <ProfileStack.Screen name="WalletLocali" component={WalletLocali} />
+                <ProfileStack.Screen name="CongratsWon" component={CongratsWon} /> */}
+                <ProfileStack.Screen name="CongratsWon" component={CongratsBalance} />
             </ProfileStack.Navigator>
         </NavigationContainer>
     );

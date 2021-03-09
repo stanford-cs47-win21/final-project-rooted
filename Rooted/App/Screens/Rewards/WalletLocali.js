@@ -1,5 +1,5 @@
 import React from 'react';
-import { Colors, Metrics, Images } from '../Themes';
+import { Colors, Metrics, Images } from '../../Themes';
 import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -12,7 +12,24 @@ export default function WalletOverview() {
                         <View style={{ alignItems: 'flex-start', width: Metrics.screenWidth * 0.9 }}>
                             <Text style={styles.header}>Gift Cards</Text>
                         </View>
-                        <Image source={Images.giftcards} style={styles.giftcards}></Image>
+                        <Image source={Images.locali} style={styles.giftcards}></Image>
+                    </View>
+                    <View style={styles.hotItemSection}>
+                        <Text style={styles.header2}>Hot Items</Text>
+                        <View style={styles.hotItemListing}>
+                                <Image source={Images.burger} style={{ width: 120, height: 120}}></Image>
+                                <View style={styles.itemDetails}>
+                                    <Text style={{ fontSize: 18 }}>Meatless Burger</Text>
+                                    <Image source={Images.stars} style={{ width: 80, height: 20, resizeMode: 'contain' }}></Image>
+                                    <Text>$6.99</Text>
+                                    <View style={styles.orderButton}>
+                                        <Text>Order Now</Text>
+                                    </View>
+                                </View>
+                        </View>
+                    </View>
+                    <View style={styles.wallet}>
+                        <Image source={Images.cycles} style={styles.giftcards}></Image>
                     </View>
                     <View style={styles.additionalBalance}>
                         <View style={{ alignItems: 'flex-start', width: Metrics.screenWidth * 0.9 }}>
@@ -23,6 +40,7 @@ export default function WalletOverview() {
                             <Text style={styles.redeemText}>REDEEM</Text>
                         </View>
                     </View>
+                    
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -38,17 +56,16 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 25,
         fontWeight: 'bold',
+        marginTop: 20,
     },
     wallet: {
         width: Metrics.screenWidth * 0.9,
-        height: 350,
+        height: 300,
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginBottom: 20,
-        marginTop: 20,
     },
     giftcards: {
-        width: Metrics.screenWidth,
+        width: Metrics.screenWidth * 0.9,
         height: 300,
         resizeMode: 'contain',
     },
@@ -75,5 +92,36 @@ const styles = StyleSheet.create({
     redeemText: {
         color: 'white',
         fontSize: 20,
+    },
+    hotItemSection: {
+        height: 150,
+        width: Metrics.screenWidth * 0.9,
+        marginTop: 30,
+        marginBottom: 10,
+    },
+    header2: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 10,
+    },
+    hotItemListing: {
+        flexDirection: 'row',
+        height: 120,
+        width: Metrics.screenWidth * 0.9,
+        backgroundColor: 'white',
+    },
+    itemDetails: {
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        marginLeft: 15, 
+    },
+    orderButton: {
+        width: 100,
+        height: 25,
+        borderRadius: 20,
+        borderWidth: 1,
+        borderColor: Colors.mediumGrey,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 });
