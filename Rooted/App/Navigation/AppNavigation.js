@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { Colors, Metrics } from '../Themes';
-//import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 /* Rewards + Profile Screens */
 import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview, localiPreviewMinus } from '../Screens/Rewards';
@@ -32,6 +33,8 @@ function ProfileStackComponent({ navigation }) {
     );
 }
 
+const TabNav = createBottomTabNavigator();
+
 const MyTheme = {
     ...DefaultTheme,
     colors: {
@@ -43,10 +46,42 @@ const MyTheme = {
 export default function AppNavigation() {
     return (
         <NavigationContainer theme={MyTheme}>
-            <ProfileStackComponent />
+            <TabNav.Navigator
+            screenOptions={({ route }) => ({
+                 tabBarIcon: ({ focused, color, size }) => {
+                     let iconName;
+
+                     if (route.name === 'Feed') {
+                         iconName = focused ? 'list-circle' : 'list-circle';
+                     } else if (route.name == 'Actions') {
+                         iconName = focused ? 'leaf' : 'leaf-outline';
+                     } else if (route.name == 'Dashboard') {
+                         iconName = focused ? 'podium' : 'podium-outline';
+                     } else if (route.name == 'Profile') {
+                         iconName = focused ? 'person' : 'person-outline';
+                     }
+                return <Ionicons name={iconName} size={40} color={Colors.darkGrey} />;
+                 },
+             })}
+             
+            tabBarOptions={{
+                activeTintColor: 'black',
+                inactiveTintColor: Colors.darkGrey
+            }}>
+                <TabNav.Screen name="Profile" component={ProfileStackComponent} />
+            </TabNav.Navigator>
+            {/* <ProfileStackComponent /> */}
         </NavigationContainer>
     );
 }
+
+// export default function AppNavigation() {
+//     return (
+//         <NavigationContainer theme={MyTheme}>
+//             <ProfileStackComponent />
+//         </NavigationContainer>
+//     );
+// }
 
 
 /* For later */
@@ -86,37 +121,3 @@ export default function AppNavigation() {
 //   );
 // }
 
-// const TabNav = createBottomTabNavigator();
-
-// export default function AppNavigation() {
-//     return (
-//       <NavigationContainer>
-//         <TabNav.Navigator
-//           initialRouteName='ActionScreen'
-//           screenOptions={({ route }) => ({
-//             tabBarIcon: ({ focused, color, size }) => {
-//               let iconName;
-  
-//               if (route.name === 'ActionTab') {
-//                 iconName = 'actions';
-//                 return // actions icon
-//               } else if (route.name === 'feed') {
-//                 iconName = 'dashboard';
-//                 return // dasboard icon
-//               } else {
-//                   // return feed icon
-//               }
-  
-//               //return <Entypo name={iconName} size={Metrics.icons.medium} color={color} />;
-//             },
-//           })}
-//           tabBarOptions={{
-//             activeTintColor: Colors.darkGrey,
-//             showLabel: true,
-//           }}>
-//           <TabNav.Screen name="FeedTab" component={FeedStackComponent} />
-//           <TabNav.Screen name="DashboardTab" component={DashboardStackComponent} />
-//         </TabNav.Navigator>
-//       </NavigationContainer>
-//     );
-//   }
