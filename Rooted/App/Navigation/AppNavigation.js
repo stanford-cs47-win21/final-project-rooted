@@ -4,21 +4,33 @@ import React from 'react';
 import { Colors, Metrics } from '../Themes';
 //import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { StyleSheet, Image } from 'react-native';
+import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 /* Rewards + Profile Screens */
-import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview } from '../Screens/Rewards';
+import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview, localiPreviewMinus } from '../Screens/Rewards';
 
 const ProfileStack = createStackNavigator();
-// function ProfileStackComponent() {
-//     return (
-//         <ProfileStack.Navigator headerMode="float">
-//             <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-//             <ProfileStack.Screen name="Profile" component={WalletOverview} />
-//         </ProfileStack.Navigator>
-//     );
-// }
+function ProfileStackComponent({ navigation }) {
+    return (
+        <ProfileStack.Navigator headerMode="float">
+            <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+            <ProfileStack.Screen name="WalletOverview" component={WalletOverview} />
+            <ProfileStack.Screen name="WalletLocali" component={WalletLocali} options={{ animationEnabled: false, }} />
+            <ProfileStack.Screen name="CongratsWon" component={CongratsWon} />
+            <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} />
+            <ProfileStack.Screen name="Stores" component={Stores} />
+            <ProfileStack.Screen name="localiPreview" component={localiPreview} options={{ animationEnabled: false, }} />
+            <ProfileStack.Screen name="localiPreviewMinus" component={localiPreviewMinus} options={({ navigation }) => ({ 
+                animationEnabled: false, 
+                headerLeft: (props) => (
+                    <HeaderBackButton onPress={() => navigation.navigate('Stores')}/>
+                    ),
+                })} 
+            />
+        </ProfileStack.Navigator>
+    );
+}
 
 const MyTheme = {
     ...DefaultTheme,
@@ -31,15 +43,7 @@ const MyTheme = {
 export default function AppNavigation() {
     return (
         <NavigationContainer theme={MyTheme}>
-            <ProfileStack.Navigator initialRouteName='Profile'>
-                {/* <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-                <ProfileStack.Screen name="WalletOverview" component={WalletOverview} />
-                <ProfileStack.Screen name="WalletLocali" component={WalletLocali} />
-                <ProfileStack.Screen name="CongratsWon" component={CongratsWon} />
-                <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} /> */}
-                {/* <ProfileStack.Screen name="Stores" component={Stores} /> */}
-                <ProfileStack.Screen name="localiPreview" component={localiPreview} />
-            </ProfileStack.Navigator>
+            <ProfileStackComponent />
         </NavigationContainer>
     );
 }

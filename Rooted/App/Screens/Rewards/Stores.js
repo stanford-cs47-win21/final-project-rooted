@@ -1,35 +1,37 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View } from 'react-native';
+import { StyleSheet, Image, Text, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
-export default function Stores() {
+export default function Stores({ navigation }) {
     return(
         <View style={styles.container}>
             <View style={styles.descripView}>
                 <Text style={styles.descrip}>Cash in your balance for gift cards at our favorite sustainable shops</Text>
             </View>
 
-
-            <View style={styles.storeView}>
-                <Image source={Images.locali2} style={styles.storeImage}></Image>
-                <View style={styles.storeDescripView}>
-                    <Text style={styles.storeTitle}>loCali</Text>
-                    <View style={styles.storeDescripTextView}>
-                        <Text style={styles.storeDescripText}>California vegetarian</Text>
-                    </View>
-                    <View style={styles.locationTextView}>
-                        <View style={styles.locationLine}>
-                            <Text style={styles.locationText}>In store</Text>
-                            <AntDesign name="check" size={10} color={Colors.grassGreen} />
+            <TouchableOpacity onPress={() => navigation.navigate('localiPreview')}>
+                <View style={styles.storeView}>
+                    <Image source={Images.locali2} style={styles.storeImage}></Image>
+                    <View style={styles.storeDescripView}>
+                        <Text style={styles.storeTitle}>loCali</Text>
+                        <View style={styles.storeDescripTextView}>
+                            <Text style={styles.storeDescripText}>California vegetarian</Text>
                         </View>
-                        <View style={styles.locationLine}>
-                            <Text style={styles.locationText}>Online</Text>
-                            <AntDesign name="check" size={10} color={Colors.grassGreen} />
+                        <View style={styles.locationTextView}>
+                            <View style={styles.locationLine}>
+                                <Text style={styles.locationText}>In store</Text>
+                                <AntDesign name="check" size={10} color={Colors.grassGreen} />
+                            </View>
+                            <View style={styles.locationLine}>
+                                <Text style={styles.locationText}>Online</Text>
+                                <AntDesign name="check" size={10} color={Colors.grassGreen} />
+                            </View>
                         </View>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
+            
 
             <View style={styles.storeView}>
                 <Image source={Images.cycles2} style={styles.storeImage}></Image>

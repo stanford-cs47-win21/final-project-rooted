@@ -1,9 +1,9 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function WalletOverview() {
+export default function WalletOverview({ navigation }) {
     return (
         <SafeAreaView>
             <ScrollView>
@@ -12,16 +12,21 @@ export default function WalletOverview() {
                         <View style={{ alignItems: 'flex-start', width: Metrics.screenWidth * 0.9 }}>
                             <Text style={styles.header}>Gift Cards</Text>
                         </View>
-                        <Image source={Images.giftcards} style={styles.giftcards}></Image>
+                        <TouchableOpacity onPress={() => navigation.navigate('WalletLocali')}>
+                            <Image source={Images.giftcards} style={styles.giftcards}></Image>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.additionalBalance}>
                         <View style={{ alignItems: 'flex-start', width: Metrics.screenWidth * 0.9 }}>
                                 <Text style={styles.header}>Additional Balance</Text>
                         </View>
                         <Text style={styles.balance}>$1.47</Text>
-                        <View style={styles.redeemButton}>
-                            <Text style={styles.redeemText}>REDEEM</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => navigation.navigate('Stores')}>
+                            <View style={styles.redeemButton}>
+                                <Text style={styles.redeemText}>REDEEM</Text>
+                            </View>
+                        </TouchableOpacity>
+                        
                     </View>
                 </View>
             </ScrollView>

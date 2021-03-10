@@ -1,9 +1,10 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function localiPreview({ navigation }) {
+export default function localiPreviewMinus({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.descripView}>
@@ -34,18 +35,18 @@ export default function localiPreview({ navigation }) {
                         </View>
 
                         <View style={styles.buttonView}>
-                            <TouchableOpacity onPress={() => navigation.navigate('localiPreviewMinus')}>
+                            <View style={styles.editButton}>
+                                <Entypo name="minus" size={40} color="black"/>
+                            </View>
+                            <View style={styles.balance}>
+                                <Text style={{ fontSize: 30, fontWeight: 'bold'}}>$0.47</Text>
+                            </View>
+                            <TouchableOpacity onPress={() => navigation.navigate('localiPreview')}>
                                 <View style={styles.editButton}>
-                                    <Entypo name="minus" size={40} color="black"/>
+                                    <Entypo name="plus" size={40} color="black"/>
                                 </View>
                             </TouchableOpacity>
                             
-                            <View style={styles.balance}>
-                                <Text style={{ fontSize: 30, fontWeight: 'bold'}}>$1.47</Text>
-                            </View>
-                            <View style={styles.editButton}>
-                                <Entypo name="plus" size={40} color="black"/>
-                            </View>
                         </View>
 
                         <View style={styles.slideToRedeemView}>

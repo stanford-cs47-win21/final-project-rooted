@@ -1,9 +1,9 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function ProfileScreen() {
+export default function ProfileScreen( {navigation} ) {
     return (
         <SafeAreaView>
             <ScrollView>
@@ -50,8 +50,10 @@ export default function ProfileScreen() {
                         </View>
                     </View>
                     <View style={styles.walletSection}>
-                        <Text style={{ fontSize: 30, textDecorationLine: 'underline' }}>Wallet</Text>
-                        <Image source={Images.wallet} style={{ marginTop: 10, width: Metrics.screenWidth * 0.9, height: 200, resizeMode: 'contain' }}/>
+                        <TouchableOpacity onPress={() => navigation.navigate('WalletOverview')}>
+                            <Text style={{ fontSize: 30, textDecorationLine: 'underline' }}>Wallet</Text>
+                            <Image source={Images.wallet} style={{ marginTop: 10, width: Metrics.screenWidth * 0.9, height: 200, resizeMode: 'contain' }}/>
+                        </TouchableOpacity>
                     </View>
                     
                 </View>

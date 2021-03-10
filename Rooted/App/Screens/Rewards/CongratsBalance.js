@@ -1,9 +1,9 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View } from 'react-native';
+import { StyleSheet, Image, Text, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function CongratsBalance() {
+export default function CongratsBalance({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.headerSection}>
@@ -14,12 +14,19 @@ export default function CongratsBalance() {
                 <Text style={[ styles.header, {color: Colors.grassGreen} ]}>$1.47</Text>
             </View>
             <View style={styles.buttonSection}>
-                <View style={styles.redeemButton}>
-                    <Text style={styles.redeemText}>REDEEM</Text>
-                </View>
-                <View style={styles.exitButton}>
-                    <Text style={styles.exitText}>EXIT</Text>
-                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('Stores')}>
+                    <View style={styles.redeemButton}>
+                        <Text style={styles.redeemText}>REDEEM</Text>
+                    </View>
+                </TouchableOpacity>
+
+                {/* Will navigate to feed */}
+                <TouchableOpacity> 
+                    <View style={styles.exitButton}>
+                        <Text style={styles.exitText}>EXIT</Text>
+                    </View>
+                </TouchableOpacity>
+                
             </View>
             
         </View>
