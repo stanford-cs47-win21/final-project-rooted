@@ -13,6 +13,14 @@ const Images = {
     greenDream: require('../Images/greenDream.png'),
     blurBackground: require('../Images/blurBackground.png'),
     locali3: require('../Images/locali3.png'),
+    dashboardBackground: require('../Images/dashboardBackground.png'),
+    sustainabiliTeam: require('../Images/sustainabiliTeam.png'),
+    ecobros: require('../Images/ecobros.png'),
+    teamSunflower: require('../Images/teamSunflower.png'),
+    powerRangers: require('../Images/powerRangers.png'),
+    goButton: require('../Images/goButton.png'),
+    plusButton: require('../Images/plusButton.png'),
+    expandedButton: require('../Images/expandedButton.png'),
 }
 
 export default Images

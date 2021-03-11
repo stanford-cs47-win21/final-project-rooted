@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
 import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
+
 export default function localiPreview({ navigation }) {
+    const [balance, setBalance] = useState(1.47);
+
+    const minusBalance = () => {
+        let min = 0;
+        let newBalance = parseFloat(balance) - 0.1;
+        if (newBalance <= min) {
+            newBalance = 0;
+            newBalance = newBalance.toFixed(2)
+            setBalance(newBalance);
+        } else {
+            newBalance = newBalance.toFixed(2);
+            setBalance(newBalance);
+        }
+        return balance;
+    }
+
+    const plusBalance = () => {
+        let max = 1.47;
+        let newBalance = parseFloat(balance) + 0.1;
+        if (newBalance >= max) {
+            setBalance(1.47);
+        } else {
+            newBalance = newBalance.toFixed(2);
+            setBalance(newBalance);
+        }
+        return balance;
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.descripView}>
@@ -34,18 +63,21 @@ export default function localiPreview({ navigation }) {
                         </View>
 
                         <View style={styles.buttonView}>
-                            <TouchableOpacity onPress={() => navigation.navigate('localiPreviewMinus')}>
+                            <TouchableOpacity onPress={() => minusBalance()}>
                                 <View style={styles.editButton}>
                                     <Entypo name="minus" size={40} color="black"/>
                                 </View>
                             </TouchableOpacity>
                             
                             <View style={styles.balance}>
-                                <Text style={{ fontSize: 30, fontWeight: 'bold'}}>$1.47</Text>
+                                <Text style={{ fontSize: 30, fontWeight: 'bold'}}>${balance}</Text>
                             </View>
-                            <View style={styles.editButton}>
-                                <Entypo name="plus" size={40} color="black"/>
-                            </View>
+                            <TouchableOpacity onPress={() => plusBalance()}>
+                                <View style={styles.editButton}>
+                                    <Entypo name="plus" size={40} color="black"/>
+                                </View>
+                            </TouchableOpacity>
+                            
                         </View>
 
                         <View style={styles.slideToRedeemView}>

@@ -8,30 +8,7 @@ import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-/* Profile */
-import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview, localiPreviewMinus } from '../Screens/Rewards';
 
-const ProfileStack = createStackNavigator();
-function ProfileStackComponent({ navigation }) {
-    return (
-        <ProfileStack.Navigator headerMode="float">
-            <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-            <ProfileStack.Screen name="WalletOverview" component={WalletOverview} />
-            <ProfileStack.Screen name="WalletLocali" component={WalletLocali} options={{ animationEnabled: false, }} />
-            <ProfileStack.Screen name="CongratsWon" component={CongratsWon} />
-            <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} />
-            <ProfileStack.Screen name="Stores" component={Stores} />
-            <ProfileStack.Screen name="localiPreview" component={localiPreview} options={{ animationEnabled: false, }} />
-            <ProfileStack.Screen name="localiPreviewMinus" component={localiPreviewMinus} options={({ navigation }) => ({ 
-                animationEnabled: false, 
-                headerLeft: (props) => (
-                    <HeaderBackButton onPress={() => navigation.navigate('Stores')}/>
-                    ),
-                })} 
-            />
-        </ProfileStack.Navigator>
-    );
-}
 
 /* Feed */
 import { Feed } from '../Screens/Feed';
@@ -58,14 +35,32 @@ function ActionsStackComponent() {
 }
 
 /* Dashboard */
-import { Dashboard } from '../Screens/Dashboard';
+import { DashboardTeamsOverview } from '../Screens/Dashboard';
 
 const DashboardStack = createStackNavigator();
 function DashboardStackComponent() {
     return (
         <DashboardStack.Navigator headerMode="float">
-            <DashboardStack.Screen name="Dashboard" component={Dashboard} />
+            <DashboardStack.Screen name="Dashboard" component={DashboardTeamsOverview} />
         </DashboardStack.Navigator>
+    );
+}
+
+/* Profile */
+import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview } from '../Screens/Profile';
+
+const ProfileStack = createStackNavigator();
+function ProfileStackComponent({ navigation }) {
+    return (
+        <ProfileStack.Navigator headerMode="float">
+            <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+            <ProfileStack.Screen name="WalletOverview" component={WalletOverview} />
+            <ProfileStack.Screen name="WalletLocali" component={WalletLocali} options={{ animationEnabled: false, }} />
+            <ProfileStack.Screen name="CongratsWon" component={CongratsWon} />
+            <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} />
+            <ProfileStack.Screen name="Stores" component={Stores} />
+            <ProfileStack.Screen name="localiPreview" component={localiPreview} options={{ animationEnabled: false, }} />
+        </ProfileStack.Navigator>
     );
 }
 
@@ -114,42 +109,3 @@ export default function AppNavigation() {
         </NavigationContainer>
     );
 }
-
-// export default function AppNavigation() {
-//     return (
-//         <NavigationContainer theme={MyTheme}>
-//             <ProfileStackComponent />
-//         </NavigationContainer>
-//     );
-// }
-
-
-
-
-// const ActionStack = createStackNavigator();
-// function ActionStackComponent() {
-//   return (
-//     <ActionStack.Navigator headerMode="float">
-//       <ActionStack.Screen name="Bookmark" component={ActionScreen} />
-//       <ActionStack.Screen name="BookmarkViewer" component={LogActionScreen} />
-//       <ActionStack.Screen name="BookmarkViewer" component={CustomActionScreen} />
-//       {/* Add more screens as we go */}
-//     </ActionStack.Navigator>
-//   );
-// }
-
-// const DashboardStack = createStackNavigator();
-// function DashboardStackComponent() {
-//   return (
-//     <DashboardStack.Navigator headerMode="float">
-//       <DashboardStack.Screen name="Bookmark" component={DashboardTeamsScreen} />
-//       <DashboardStack.Screen name="BookmarkViewer" component={ViewTeamScreen} />
-//       <DashboardStack.Screen name="BookmarkViewer" component={DiscoverTeamScreen} />
-//       <DashboardStack.Screen name="BookmarkViewer" component={CustomActionScreen} />
-//       <DashboardStack.Screen name="Bookmark" component={DashboardChallengesScreen} />
-//       <DashboardStack.Screen name="Bookmark" component={LeaderboardScreen} />
-//       {/* Add more screens as we go */}
-//     </DashboardStack.Navigator>
-//   );
-// }
-

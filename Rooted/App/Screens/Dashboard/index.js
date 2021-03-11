@@ -1,3 +1,3 @@
-import Dashboard from './Dashboard';
+import DashboardTeamsOverview from './DashboardTeamsOverview';
 
-export { Dashboard }
+export { DashboardTeamsOverview }
