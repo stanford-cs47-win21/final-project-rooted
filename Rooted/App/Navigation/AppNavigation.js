@@ -8,7 +8,7 @@ import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-/* Rewards + Profile Screens */
+/* Profile */
 import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview, localiPreviewMinus } from '../Screens/Rewards';
 
 const ProfileStack = createStackNavigator();
@@ -33,7 +33,7 @@ function ProfileStackComponent({ navigation }) {
     );
 }
 
-/* Feed Screen */
+/* Feed */
 import { Feed } from '../Screens/Feed';
 
 const FeedStack = createStackNavigator();
@@ -42,6 +42,30 @@ function FeedStackComponent() {
         <FeedStack.Navigator headerMode="float">
             <FeedStack.Screen name="Feed" component={Feed} />
         </FeedStack.Navigator>
+    );
+}
+
+/* Actions */
+import { Actions } from '../Screens/Actions';
+
+const ActionsStack = createStackNavigator();
+function ActionsStackComponent() {
+    return (
+        <ActionsStack.Navigator headerMode="float">
+            <ActionsStack.Screen name="Actions" component={Actions} />
+        </ActionsStack.Navigator>
+    );
+}
+
+/* Dashboard */
+import { Dashboard } from '../Screens/Dashboard';
+
+const DashboardStack = createStackNavigator();
+function DashboardStackComponent() {
+    return (
+        <DashboardStack.Navigator headerMode="float">
+            <DashboardStack.Screen name="Dashboard" component={Dashboard} />
+        </DashboardStack.Navigator>
     );
 }
 
@@ -81,7 +105,9 @@ export default function AppNavigation() {
                 activeTintColor: 'black',
                 inactiveTintColor: Colors.darkGrey
             }}>
-                <TabNav.Screen name="Feed" component={FeedStackComponent} />    
+                <TabNav.Screen name="Feed" component={FeedStackComponent} />   
+                <TabNav.Screen name="Actions" component={ActionsStackComponent} /> 
+                <TabNav.Screen name="Dashboard" component={DashboardStackComponent} /> 
                 <TabNav.Screen name="Profile" component={ProfileStackComponent} />
                 
             </TabNav.Navigator>
