@@ -47,7 +47,7 @@ function DashboardStackComponent() {
 }
 
 /* Profile */
-import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview, localiPreviewMinus } from '../Screens/Rewards';
+import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview } from '../Screens/Rewards';
 
 const ProfileStack = createStackNavigator();
 function ProfileStackComponent({ navigation }) {
@@ -60,13 +60,6 @@ function ProfileStackComponent({ navigation }) {
             <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} />
             <ProfileStack.Screen name="Stores" component={Stores} />
             <ProfileStack.Screen name="localiPreview" component={localiPreview} options={{ animationEnabled: false, }} />
-            <ProfileStack.Screen name="localiPreviewMinus" component={localiPreviewMinus} options={({ navigation }) => ({ 
-                animationEnabled: false, 
-                headerLeft: (props) => (
-                    <HeaderBackButton onPress={() => navigation.navigate('Stores')}/>
-                    ),
-                })} 
-            />
         </ProfileStack.Navigator>
     );
 }

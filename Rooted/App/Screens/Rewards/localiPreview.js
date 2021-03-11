@@ -11,7 +11,9 @@ export default function localiPreview({ navigation }) {
         let min = 0;
         let newBalance = parseFloat(balance) - 0.1;
         if (newBalance <= min) {
-            setBalance(0);
+            newBalance = 0;
+            newBalance = newBalance.toFixed(2)
+            setBalance(newBalance);
         } else {
             newBalance = newBalance.toFixed(2);
             setBalance(newBalance);
@@ -25,7 +27,7 @@ export default function localiPreview({ navigation }) {
         if (newBalance >= max) {
             setBalance(1.47);
         } else {
-            
+            newBalance = newBalance.toFixed(2);
             setBalance(newBalance);
         }
         return balance;
@@ -68,7 +70,7 @@ export default function localiPreview({ navigation }) {
                             </TouchableOpacity>
                             
                             <View style={styles.balance}>
-                                <Text style={{ fontSize: 30, fontWeight: 'bold'}}>{balance}</Text>
+                                <Text style={{ fontSize: 30, fontWeight: 'bold'}}>${balance}</Text>
                             </View>
                             <TouchableOpacity onPress={() => plusBalance()}>
                                 <View style={styles.editButton}>
