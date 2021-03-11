@@ -33,6 +33,19 @@ function ProfileStackComponent({ navigation }) {
     );
 }
 
+/* Feed Screen */
+import { Feed } from '../Screens/Feed';
+
+const FeedStack = createStackNavigator();
+function FeedStackComponent() {
+    return (
+        <FeedStack.Navigator headerMode="float">
+            <FeedStack.Screen name="Feed" component={Feed} />
+        </FeedStack.Navigator>
+    );
+}
+
+
 const TabNav = createBottomTabNavigator();
 
 const MyTheme = {
@@ -52,7 +65,7 @@ export default function AppNavigation() {
                      let iconName;
 
                      if (route.name === 'Feed') {
-                         iconName = focused ? 'list-circle' : 'list-circle';
+                         iconName = focused ? 'list-circle' : 'list-circle-outline';
                      } else if (route.name == 'Actions') {
                          iconName = focused ? 'leaf' : 'leaf-outline';
                      } else if (route.name == 'Dashboard') {
@@ -60,7 +73,7 @@ export default function AppNavigation() {
                      } else if (route.name == 'Profile') {
                          iconName = focused ? 'person' : 'person-outline';
                      }
-                return <Ionicons name={iconName} size={40} color={Colors.darkGrey} />;
+                return <Ionicons name={iconName} size={35} color={Colors.darkGrey} />;
                  },
              })}
              
@@ -68,9 +81,10 @@ export default function AppNavigation() {
                 activeTintColor: 'black',
                 inactiveTintColor: Colors.darkGrey
             }}>
+                <TabNav.Screen name="Feed" component={FeedStackComponent} />    
                 <TabNav.Screen name="Profile" component={ProfileStackComponent} />
+                
             </TabNav.Navigator>
-            {/* <ProfileStackComponent /> */}
         </NavigationContainer>
     );
 }
@@ -84,15 +98,7 @@ export default function AppNavigation() {
 // }
 
 
-/* For later */
-// const FeedStack = createStackNavigator();
-// function FeedStackComponent() {
-//     return (
-//         <FeedStack.Navigator headerMode="float">
-//             <FeedStack.Screen name="Feed" component={FeedScreen} />
-//         </FeedStack.Navigator>
-//     );
-// }
+
 
 // const ActionStack = createStackNavigator();
 // function ActionStackComponent() {
