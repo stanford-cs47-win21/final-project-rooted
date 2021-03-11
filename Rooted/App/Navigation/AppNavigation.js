@@ -47,7 +47,7 @@ function DashboardStackComponent() {
 }
 
 /* Profile */
-import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview } from '../Screens/Rewards';
+import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview } from '../Screens/Profile';
 
 const ProfileStack = createStackNavigator();
 function ProfileStackComponent({ navigation }) {
