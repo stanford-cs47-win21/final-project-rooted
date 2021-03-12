@@ -36,13 +36,14 @@ function ActionsStackComponent() {
 }
 
 /* Dashboard */
-import { DashboardTeamsOverview } from '../Screens/Dashboard';
+import { DashboardTeamsOverview, joinTeamScreen } from '../Screens/Dashboard';
 
 const DashboardStack = createStackNavigator();
 function DashboardStackComponent() {
     return (
         <DashboardStack.Navigator headerMode="float">
             <DashboardStack.Screen name="Dashboard" component={DashboardTeamsOverview} />
+            <DashboardStack.Screen name="joinTeamScreen" component={joinTeamScreen} />
         </DashboardStack.Navigator>
     );
 }

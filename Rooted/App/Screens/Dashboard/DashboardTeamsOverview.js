@@ -2,10 +2,19 @@ import React, { useState } from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
 import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
+import joinTeamScreen from './joinTeamScreen';
 
 
-export default function DashboardTeamsOverview() {
+export default function DashboardTeamsOverview( { navigation }) {
     const [button, setButton] = useState(Images.plusButton);
+
+    const joinTeam = () => {
+        if (button === Images.plusButton) {
+            setButton(Images.expandedButton);
+        } else {
+            navigation.navigate('joinTeamScreen');
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -65,10 +74,14 @@ export default function DashboardTeamsOverview() {
                             <Image source={Images.goButton} style={styles.goButton}></Image>
                         </View>
                     </View>
-                    
-                    <TouchableOpacity onPress={() => setButton(Images.expandedButton)}>
+                    <TouchableOpacity onPress={() => joinTeam()}>
                         <Image source={button} style={styles.plusButton}></Image>
                     </TouchableOpacity>
+                    {/* <TouchableOpacity onPress={() => setButton(Images.expandedButton)}>
+                        <TouchableOpacity onPress={() => joinTeam()}>
+                            <Image source={button} style={styles.plusButton}></Image>
+                        </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
             </ImageBackground>
         </View>

@@ -4,29 +4,39 @@ import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 
 // title, subline, image
 
-export default function joinTeam(props) {
+export default function JoinTeamComponent(props) {
     return (
         <View style={styles.container}>
-            <View style={styles.toplineView}>
-                <Text style={styles.titleText}>{props.title}</Text>
-                <Text style={styles.seeAllText}>See All</Text>
+            <View style={styles.toplineViewView}>
+                <View style={styles.toplineView}>
+                    <Text style={styles.titleText}>{props.title}</Text>
+                    <Text style={styles.seeAllText}>See All</Text>
+                </View>
+                <Text style={styles.sublineText}>{props.subline}</Text>
             </View>
-            <Text style={styles.sublineText}>{props.subline}</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        height: 602,
+        height: 600,
         width: 329,
+        alignItems: 'center',
+        backgroundColor: 'blue'
+    },
+    toplineViewView: {
+        height: 50,
+        width: 329,
+        alignItems: 'flex-start',
+        backgroundColor: 'green'
     },
     toplineView: {
         height: 24,
         width: 329,
         flexDirection: 'row',
-        justifyContent: 'space-between';
-        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     titleText: {
         fontSize: 16,
@@ -54,6 +64,6 @@ const styles = StyleSheet.create({
     },
     featuredTeamDescrip: {
         height: 272 - 234,
-        width: 
+
     },
 });
