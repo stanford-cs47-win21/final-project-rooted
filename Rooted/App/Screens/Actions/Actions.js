@@ -6,19 +6,16 @@ import { AntDesign } from '@expo/vector-icons';
 export default function Action( {navigation} ) {
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView style={styles.scrollContainer}>
                 <View style={styles.container}>
-                    <View style={styles.title}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Action Center</Text>
-                    </View>
                     <View style={styles.percentageView}>
-                        <View style={styles.percentageCard}>
+                        <View style={styles.percentageCard} >
                             <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.mediumBlue}}>1</Text>
                             <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>Challenge in Progress</Text>
                         </View>
                         <View style={styles.percentageCard}>
                             <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.grassGreen}}>50</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>Points to Next Reward</Text>
+                            <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>Actions Completed</Text>
                         </View>
                         <View style={styles.percentageCard}>
                             <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.darkGreen}}>6</Text>
@@ -28,14 +25,40 @@ export default function Action( {navigation} ) {
                     <View style={styles.actionsProgressOverview}>
                         <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Actions in Progress</Text>
                     </View>
-                    
+                    <View style={styles.tasks}>
+                        <View style={styles.taskView}>
+                            <View style={styles.bodyTextView}>
+                                <Text style={styles.bodyText}>Recycle 3 Times</Text>
+                            </View>
+                        </View>
+                        <View style={styles.taskView}>
+                            <View style={styles.bodyTextView}>
+                                <Text style={styles.bodyText}>Vegetarian for a Week</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.taskView}>
+                            <View style={styles.bodyTextView}>
+                                <Text style={styles.bodyText}>Reusable Water Bottles</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.taskView}>
+                            <View style={styles.bodyTextView}>
+                                <Text style={styles.bodyText}>Bike to Work</Text>
+                            </View>
+                        </View>
+                    </View>
                 </View>
             </ScrollView>
-            <TouchableOpacity onPress={() => navigation.navigate('Stores')}>
-                <View style={styles.customButton}>
-                    <Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
+            <View style={styles.customButtonBox}>
+            <TouchableOpacity onPress={() => {
+                            console.log("Pressed");
+                navigation.navigate('CustomAction');
+            }}><View style={styles.customButton}><Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
                 </View>
             </TouchableOpacity>
+            </View>
         </SafeAreaView>
     );
 }
@@ -45,6 +68,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
+        height: Metrics.screenHeight*.71
     },
     title: {
         justifyContent: 'space-between',
@@ -57,7 +81,7 @@ const styles = StyleSheet.create({
     actionsProgressOverview: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        height: 200,
+        marginBottom: 10,
         width: Metrics.screenWidth * 0.9,
     },
     pillView: {
@@ -102,6 +126,11 @@ const styles = StyleSheet.create({
         width: Metrics.screenWidth * 0.9,
         height: 300,
     },
+    customButtonBox: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
     customButton: {
         width: 308,
         height: 48,
@@ -110,12 +139,93 @@ const styles = StyleSheet.create({
         margin: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        bottom: -300,
-        right: (Metrics.screenWidth - 348)/2,
     },
     customButtonText: {
         color: 'white',
         fontSize: 20,
     },
+    dashBack: {
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
+    combinedButtonsView: {
+        height: 45,
+        width: 316,
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        borderRadius: 22.5,
+        marginTop: 50,
+        marginBottom: 30, 
+    },
+    teamsButton: {
+        height: 45,
+        width: 316/2,
+        borderTopLeftRadius: 22.5,
+        borderBottomLeftRadius: 22.5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRightWidth: 0.5,
+        borderRightColor: Colors.lightGrey,
+        backgroundColor: 'white',
+        borderLeftWidth: 0.5,
+        borderLeftColor: Colors.lightGrey,
+        borderTopWidth: 0.5,
+        borderTopColor: Colors.lightGrey,
+        borderBottomWidth: 0.5,
+        borderBottomColor: Colors.lightGrey,
+    },
+    challengeButton: {
+        height: 45,
+        width: 316/2,
+        borderTopRightRadius: 22.5,
+        borderBottomRightRadius: 22.5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderLeftWidth: 0.5,
+        borderColor: Colors.lightGrey,
+        backgroundColor: 'white',
+        borderRightWidth: 0.5,
+        borderRightColor: Colors.lightGrey,
+        borderTopWidth: 0.5,
+        borderTopColor: Colors.lightGrey,
+        borderBottomWidth: 0.5,
+        borderBottomColor: Colors.lightGrey,
+    },
+    buttonText: {
+        fontSize: 14,
+    },
+    tasks: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    taskView: {
+        height: Metrics.screenHeight * 0.1,
+        width: Metrics.screenWidth * .8,
+        backgroundColor: Colors.lightGrey,
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderRadius: 50,
+        margin: 10,
+    },
+    bodyTextView: {
+        width: 120,
+    },
+    bodyText: {
+        fontSize: 15,
+    },
+    teamPhoto: {
+        height: 40,
+        width: 40,
+        resizeMode: 'contain'
+    },
+    goButton: {
+        height: 25,
+        width: 25,
+        resizeMode: 'contain',
+    },
+    plusButton: {
+        height: 62,
+        resizeMode: 'contain',
+        marginBottom: 30,
+    }
 });
