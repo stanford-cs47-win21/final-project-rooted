@@ -80,17 +80,17 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 20,
         height: 600,
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         alignItems: 'center',
     },
     toplineView: {
         height: 50,
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         alignItems: 'flex-start',
     },
     lineOne: {
         height: 24,
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     },
     seeAllText: {
         fontSize: 14,
-        color: Colors.lightGrey,
+        color: Colors.mediumGrey,
     },
     sublineText: {
         fontSize: 14,
@@ -109,19 +109,19 @@ const styles = StyleSheet.create({
     },
     featuredTeamView: {
         height: 280,
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         justifyContent: 'flex-start',
         alignItems: 'center',
         paddingTop: 10
     },
     featuredTeamImage: {
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         height: 150,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
     },
     featuredDescripContainer: {
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         height: 120, 
         justifyContent: 'flex-start',
         paddingBottom: 5,
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         marginTop: 3,
         marginLeft: 10,
         height: 35,
-        width: 300,
+        width: Metrics.screenWidth * 0.9,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
@@ -172,13 +172,13 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         height: 202,
-        width: 310,
+        width: Metrics.screenWidth * 0.9,
         justifyContent: 'space-evenly',
         alignItems: 'center'
     },
     listingContainer: {
         height: 60,
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     },
     seeAllButton: {
         height: 32,
-        width: 350,
+        width: Metrics.screenWidth * 0.9,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',

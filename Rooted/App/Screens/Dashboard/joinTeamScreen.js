@@ -41,6 +41,17 @@ export default function joinTeamScreen() {
                 listDescripThree="4 members - Food - 11 mi away"
                 />
             </View>
+            <View style={styles.toplineView}>
+                <Text style={styles.titleText}>Categories</Text>
+                <Text style={styles.sublineText}>Find a group by browsing top categories.</Text>
+            </View>
+            <ScrollView horizontal={true}>
+                <View style={styles.categoriesContainer}>
+                    <Image source={Images.energy} style={styles.categoryImg}></Image>
+                    <Image source={Images.food} style={styles.categoryImg}></Image>
+                    <Image source={Images.fashion} style={styles.categoryImg}></Image>
+                </View>
+            </ScrollView>
         </ScrollView>
 
     );
@@ -49,5 +60,32 @@ export default function joinTeamScreen() {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center'
+    },
+    categoriesContainer: {
+        width: 420,
+        height: 140,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingLeft: 20,
+    },
+    toplineView: {
+        height: 50,
+        width: 350,
+        alignItems: 'flex-start',
+        paddingLeft: 20,
+    },
+    titleText: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+    sublineText: {
+        fontSize: 14,
+        color: Colors.mediumGrey,
+    },
+    categoryImg: {
+        borderRadius: 10,
+        height: 121,
+        width: 121,
     }
 });

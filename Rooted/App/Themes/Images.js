@@ -30,6 +30,9 @@ const Images = {
     upcycled: require('../Images/upcycled.png'),
     farmFriends: require('../Images/farmFriends.png'),
     featuredFriendsGroup: require('../Images/featuredFriendsGroup.png'),
+    food: require('../Images/food.png'),
+    energy: require('../Images/energy.png'),
+    fashion: require('../Images/fashion.png'),
 }
 
 export default Images
