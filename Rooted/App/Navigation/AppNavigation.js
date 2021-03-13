@@ -36,15 +36,16 @@ function ActionsStackComponent() {
 }
 
 /* Dashboard */
-import { DashboardTeamsOverview, joinTeamScreen, TeamScreen } from '../Screens/Dashboard';
+import { DashboardTeamsOverview, joinTeamScreen, TeamScreen, ChallengesOverview } from '../Screens/Dashboard';
 
 const DashboardStack = createStackNavigator();
 function DashboardStackComponent() {
     return (
         <DashboardStack.Navigator headerMode="float">
-            <DashboardStack.Screen name="Dashboard" component={DashboardTeamsOverview} />
-            <DashboardStack.Screen name="joinTeamScreen" component={joinTeamScreen} />
+            <DashboardStack.Screen name="Dashboard" component={DashboardTeamsOverview} options={{ animationEnabled: false }}/>
+            <DashboardStack.Screen name="joinTeamScreen" component={joinTeamScreen} options={{title: 'Discover'}} />
             <DashboardStack.Screen name="TeamScreen" component={TeamScreen} />
+            <DashboardStack.Screen name="ChallengesOverview" component={ChallengesOverview} options={{ animationEnabled: false, headerLeft: null, title: 'Dashboard' }}/>
         </DashboardStack.Navigator>
     );
 }

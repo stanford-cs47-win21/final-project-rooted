@@ -38,6 +38,7 @@ const Images = {
     caleb: require('../Images/caleb.png'),
     li: require('../Images/li.png'),
     jake: require('../Images/jake.png'),
+    energyMarathon: require('../Images/energyMarathon.png'),
 }
 
 export default Images

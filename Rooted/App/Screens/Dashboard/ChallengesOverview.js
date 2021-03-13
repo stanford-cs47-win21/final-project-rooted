@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity, Touchable } from 'react-native';
+import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 
 
-export default function DashboardTeamsOverview( { navigation }) {
+export default function ChallengesOverview( { navigation }) {
     const [button, setButton] = useState(Images.plusButton);
 
     const joinTeam = () => {
         if (button === Images.plusButton) {
             setButton(Images.expandedButton);
-        } else {
-            navigation.navigate('joinTeamScreen');
         }
     }
 
@@ -26,58 +24,42 @@ export default function DashboardTeamsOverview( { navigation }) {
             ]}
             >
                 <View style={styles.combinedButtonsView}>
-                    <View style={styles.teamsButton}>
-                        <Text style={[ styles.buttonText, { fontWeight: 'bold' } ]}>TEAMS</Text>
-                    </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('ChallengesOverview')}>
-                        <View style={styles.challengeButton}>
-                            <Text style={[ styles.buttonText, { color: Colors.darkGrey } ]}>CHALLENGES</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+                        <View style={styles.teamsButton}>
+                            <Text style={[ styles.buttonText, { color: Colors.darkGrey } ]}>TEAMS</Text>
                         </View>
                     </TouchableOpacity>
                     
+                    <View style={styles.challengeButton}>
+                        <Text style={[ styles.buttonText, { fontWeight: 'bold' } ]}>CHALLENGES</Text>
+                    </View>
                 </View>
 
                 <View style={styles.centerView}>
-                    <View style={styles.allTeams}>
+                    <View style={styles.allChall}>
 
                         <TouchableOpacity onPress={() => navigation.navigate('TeamScreen')}>
-                            <View style={styles.teamView}>
+                            <View style={styles.challView}>
                                 <Text style={{ fontWeight: 'bold'}}>1</Text>
-                                <Image source={Images.sustainabiliTeam} style={styles.teamPhoto}></Image>
-                                <View style={styles.bodyTextView}>
-                                    <Text style={styles.bodyText}>SustainabiliTeam</Text>
+                                <Image source={Images.ecoweek} style={styles.challPhoto}></Image>
+                                <View style={styles.listingDescripContainer}>
+                                    <Text style={styles.currChallName}>Stanford Eco Week</Text>
+                                    <Text style={styles.currChallDescrip}>5 days 1:21:33 left</Text>
                                 </View>
                                 <Image source={Images.goButton} style={styles.goButton}></Image>
                             </View>
                         </TouchableOpacity>
                         
-
-                        <View style={styles.teamView}>
+                        <View style={styles.challView}>
                             <Text style={{ fontWeight: 'bold'}}>2</Text>
-                            <Image source={Images.ecobros} style={styles.teamPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>Eco Bros</Text>
+                            <Image source={Images.energyMarathon} style={styles.challPhoto}></Image>
+                            <View style={styles.listingDescripContainer}>
+                                <Text style={styles.currChallName}>Energy Marathon</Text>
+                                <Text style={styles.currChallDescrip}>0 days 23:10:04 left</Text>
                             </View>
                             <Image source={Images.goButton} style={styles.goButton}></Image>
                         </View>
-
-                        <View style={styles.teamView}>
-                            <Text style={{ fontWeight: 'bold'}}>3</Text>
-                            <Image source={Images.teamSunflower} style={styles.teamPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>Team Sunflower</Text>
-                            </View>
-                            <Image source={Images.goButton} style={styles.goButton}></Image>
-                        </View>
-
-                        <View style={styles.teamView}>
-                            <Text style={{ fontWeight: 'bold'}}>4</Text>
-                            <Image source={Images.powerRangers} style={styles.teamPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>Power Rangers</Text>
-                            </View>
-                            <Image source={Images.goButton} style={styles.goButton}></Image>
-                        </View>
+  
                     </View>
                     <TouchableOpacity onPress={() => joinTeam()}>
                         <Image source={button} style={styles.plusButton}></Image>
@@ -103,11 +85,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'white',
         borderRadius: 22.5,
-        // shadowOffset: {
-        //     width: 1,
-        //     height: 1,
-        // },
-        // shadowOpacity: 0.15,
         marginTop: 50,
         marginBottom: 30, 
     },
@@ -156,13 +133,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    allTeams: {
+    allChall: {
         width: 320,
         height: 250,
-        justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 10,
     },
-    teamView: {
+    challView: {
         width: 290,
         height: 40,
         flexDirection: 'row',
@@ -170,16 +147,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 10,
     },
-    bodyTextView: {
-        width: 130,
-    },
-    bodyText: {
-        fontSize: 15,
-        fontWeight: 'bold',
-    },
-    teamPhoto: {
-        height: 40,
-        width: 40,
+    challPhoto: {
+        width: 50,
         resizeMode: 'contain',
     },
     goButton: {
@@ -191,5 +160,16 @@ const styles = StyleSheet.create({
         height: 62,
         resizeMode: 'contain',
         marginBottom: 30,
-    }
+    },
+    listingDescripContainer: {
+        width: 150,
+    },
+    currChallName: {
+        fontSize: 14,
+        fontWeight: 'bold',
+    },
+    currChallDescrip: {
+        fontSize: 12,
+        color: Colors.mediumGrey,
+    },
 });
