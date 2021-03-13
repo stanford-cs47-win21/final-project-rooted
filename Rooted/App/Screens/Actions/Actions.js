@@ -54,6 +54,7 @@ export default function Action( {navigation} ) {
             <View style={styles.customButtonBox}>
             <TouchableOpacity onPress={() => {
                             console.log("Pressed");
+                            global.activitiesList = ["Hello!"];
                 navigation.navigate('CustomAction');
             }}><View style={styles.customButton}><Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
                 </View>

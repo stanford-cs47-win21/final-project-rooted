@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 export default function CustomAction( {navigation} ) {
     return (
-        <View><Text>Create A Custom Challenge!</Text></View>
+        <View><Text>{global.activitiesList[0]}</Text></View>
     );
 }
 
