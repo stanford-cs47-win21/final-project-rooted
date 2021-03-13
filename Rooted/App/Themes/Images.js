@@ -39,6 +39,7 @@ const Images = {
     li: require('../Images/li.png'),
     jake: require('../Images/jake.png'),
     energyMarathon: require('../Images/energyMarathon.png'),
+    leaderboard: require('../Images/leaderboard.png'),
 }
 
 export default Images

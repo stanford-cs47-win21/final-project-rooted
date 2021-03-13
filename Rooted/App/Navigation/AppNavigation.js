@@ -36,7 +36,7 @@ function ActionsStackComponent() {
 }
 
 /* Dashboard */
-import { DashboardTeamsOverview, joinTeamScreen, TeamScreen, ChallengesOverview } from '../Screens/Dashboard';
+import { DashboardTeamsOverview, joinTeamScreen, TeamScreen, ChallengesOverview, Leaderboard } from '../Screens/Dashboard';
 
 const DashboardStack = createStackNavigator();
 function DashboardStackComponent() {
@@ -46,6 +46,7 @@ function DashboardStackComponent() {
             <DashboardStack.Screen name="joinTeamScreen" component={joinTeamScreen} options={{title: 'Discover'}} />
             <DashboardStack.Screen name="TeamScreen" component={TeamScreen} />
             <DashboardStack.Screen name="ChallengesOverview" component={ChallengesOverview} options={{ animationEnabled: false, headerLeft: null, title: 'Dashboard' }}/>
+            <DashboardStack.Screen name="Leaderboard" component={Leaderboard} />
         </DashboardStack.Navigator>
     );
 }
@@ -96,7 +97,7 @@ export default function AppNavigation() {
                      } else if (route.name == 'Profile') {
                          iconName = focused ? 'person' : 'person-outline';
                      }
-                return <Ionicons name={iconName} size={35} color={Colors.darkGrey} />;
+                return <Ionicons style={{ marginTop: 3 }} name={iconName} size={35} color={Colors.darkGrey} />;
                  },
              })}
              

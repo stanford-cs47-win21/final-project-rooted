@@ -38,7 +38,7 @@ export default function ChallengesOverview( { navigation }) {
                 <View style={styles.centerView}>
                     <View style={styles.allChall}>
 
-                        <TouchableOpacity onPress={() => navigation.navigate('TeamScreen')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Leaderboard')}>
                             <View style={styles.challView}>
                                 <Text style={{ fontWeight: 'bold'}}>1</Text>
                                 <Image source={Images.ecoweek} style={styles.challPhoto}></Image>
