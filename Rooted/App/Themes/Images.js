@@ -21,6 +21,15 @@ const Images = {
     goButton: require('../Images/goButton.png'),
     plusButton: require('../Images/plusButton.png'),
     expandedButton: require('../Images/expandedButton.png'),
+    cyclingTogether: require('../Images/cyclingTogether.png'),
+    shine: require('../Images/shine.png'),
+    munchies: require('../Images/munchies.png'),
+    haute: require('../Images/haute.png'),
+    lit: require('../Images/lit.png'),
+    vegOut: require('../Images/vegOut.png'),
+    upcycled: require('../Images/upcycled.png'),
+    farmFriends: require('../Images/farmFriends.png'),
+    featuredFriendsGroup: require('../Images/featuredFriendsGroup.png'),
 }
 
 export default Images
