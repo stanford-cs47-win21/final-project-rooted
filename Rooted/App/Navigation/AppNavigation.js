@@ -36,7 +36,7 @@ function ActionsStackComponent() {
 }
 
 /* Dashboard */
-import { DashboardTeamsOverview, joinTeamScreen } from '../Screens/Dashboard';
+import { DashboardTeamsOverview, joinTeamScreen, TeamScreen } from '../Screens/Dashboard';
 
 const DashboardStack = createStackNavigator();
 function DashboardStackComponent() {
@@ -44,6 +44,7 @@ function DashboardStackComponent() {
         <DashboardStack.Navigator headerMode="float">
             <DashboardStack.Screen name="Dashboard" component={DashboardTeamsOverview} />
             <DashboardStack.Screen name="joinTeamScreen" component={joinTeamScreen} />
+            <DashboardStack.Screen name="TeamScreen" component={TeamScreen} />
         </DashboardStack.Navigator>
     );
 }

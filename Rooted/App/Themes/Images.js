@@ -33,6 +33,11 @@ const Images = {
     food: require('../Images/food.png'),
     energy: require('../Images/energy.png'),
     fashion: require('../Images/fashion.png'),
+    ecoweek: require('../Images/ecoweek.png'),
+    divya: require('../Images/divya.png'),
+    caleb: require('../Images/caleb.png'),
+    li: require('../Images/li.png'),
+    jake: require('../Images/jake.png'),
 }
 
 export default Images

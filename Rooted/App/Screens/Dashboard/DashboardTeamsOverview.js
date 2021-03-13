@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, TouchableOpacity } from 'react-native';
-import { AntDesign, Entypo } from '@expo/vector-icons';
-import joinTeamScreen from './joinTeamScreen';
+import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 
 
 export default function DashboardTeamsOverview( { navigation }) {
@@ -38,14 +36,18 @@ export default function DashboardTeamsOverview( { navigation }) {
 
                 <View style={styles.centerView}>
                     <View style={styles.allTeams}>
-                        <View style={styles.teamView}>
-                            <Text style={{ fontWeight: 'bold'}}>1</Text>
-                            <Image source={Images.sustainabiliTeam} style={styles.teamPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>SustainabiliTeam</Text>
+
+                        <TouchableOpacity onPress={() => navigation.navigate('TeamScreen')}>
+                            <View style={styles.teamView}>
+                                <Text style={{ fontWeight: 'bold'}}>1</Text>
+                                <Image source={Images.sustainabiliTeam} style={styles.teamPhoto}></Image>
+                                <View style={styles.bodyTextView}>
+                                    <Text style={styles.bodyText}>SustainabiliTeam</Text>
+                                </View>
+                                <Image source={Images.goButton} style={styles.goButton}></Image>
                             </View>
-                            <Image source={Images.goButton} style={styles.goButton}></Image>
-                        </View>
+                        </TouchableOpacity>
+                        
 
                         <View style={styles.teamView}>
                             <Text style={{ fontWeight: 'bold'}}>2</Text>
@@ -77,11 +79,6 @@ export default function DashboardTeamsOverview( { navigation }) {
                     <TouchableOpacity onPress={() => joinTeam()}>
                         <Image source={button} style={styles.plusButton}></Image>
                     </TouchableOpacity>
-                    {/* <TouchableOpacity onPress={() => setButton(Images.expandedButton)}>
-                        <TouchableOpacity onPress={() => joinTeam()}>
-                            <Image source={button} style={styles.plusButton}></Image>
-                        </TouchableOpacity>
-                    </TouchableOpacity> */}
                 </View>
             </ImageBackground>
         </View>
