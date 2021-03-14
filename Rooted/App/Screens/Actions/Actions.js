@@ -15,61 +15,36 @@ export default function Action( {navigation} ) {
                         <View style={styles.percentageCard} >
                             <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.mediumBlue }}>Stanford Eco Week</Text>
                             <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.mediumBlue}}>273</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>pts</Text>
+                            <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>points</Text>
                         </View>
                         <View style={styles.percentageCard}>
                             <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.grassGreen }}>Energy Marathon</Text>
                             <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.grassGreen}}>50</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>pts</Text>
+                            <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>points</Text>
                         </View>
                         <View style={styles.percentageCard}>
                             <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.darkGreen }}>Green Revolution</Text>
                             <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.darkGreen}}>35</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.darkGreen }}>pts</Text>
+                            <Text style={{ textAlign: 'center', color: Colors.darkGreen }}>points</Text>
                         </View>
                     </View>
                     <View style={styles.actionsProgressOverview}>
                         <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Actions in Progress</Text>
                     </View>
                     <View style={styles.tasks}>
-                        <View style={styles.taskView}>
-                            <Image source={Images[global.actionsInProgress[0].image]} style={styles.taskPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.titleText}>{global.actionsInProgress[0].title}</Text>
-                                <Text style={styles.ptsText}>{global.actionsInProgress[0].pts}</Text>
+                        {global.actionsInProgress.map(action => (
+                        <TouchableOpacity key={action.pts} onPress={() => {
+                            navigation.navigate('Complete an Action', action);
+                        }}>
+                            <View style={styles.taskView}>
+                                <Image source={Images[action.image]} style={styles.taskPhoto}></Image>
+                                <View style={styles.bodyTextView}>
+                                    <Text style={styles.titleText}>{action.title}</Text>
+                                    <Text style={styles.ptsText}>{action.pts}</Text>
+                                </View>
                             </View>
-                        </View>
-                        <View style={styles.taskView}>
-                        <Image source={Images[global.actionsInProgress[1].image]} style={styles.taskPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.titleText}>{global.actionsInProgress[1].title}</Text>
-                                <Text style={styles.ptsText}>{global.actionsInProgress[1].pts}</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.taskView}>
-                            <Image source={Images[global.actionsInProgress[2].image]} style={styles.taskPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.titleText}>{global.actionsInProgress[2].title}</Text>
-                                <Text style={styles.ptsText}>{global.actionsInProgress[2].pts}</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.taskView}>
-                            <Image source={Images[global.actionsInProgress[3].image]} style={styles.taskPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.titleText}>{global.actionsInProgress[3].title}</Text>
-                                <Text style={styles.ptsText}>{global.actionsInProgress[3].pts}</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.taskView}>
-                            <Image source={Images[global.actionsInProgress[4].image]} style={styles.taskPhoto}></Image>
-                            <View style={styles.bodyTextView}>
-                                <Text style={styles.titleText}>{global.actionsInProgress[4].title}</Text>
-                                <Text style={styles.ptsText}>{global.actionsInProgress[4].pts}</Text>
-                            </View>
-                        </View>
+                        </TouchableOpacity>
+                        ))}
                     </View>
                 </View>
             </ScrollView>

@@ -11,27 +11,32 @@ import AppNavigation from './App/Navigation/AppNavigation';
 global.actionsInProgress = [
     {
         title: "Recycle Three Times",
-        pts: "30 pts",
+        description: "Recycle items (boxes, plastic, etc.) three times to complete this action",
+        pts: "30 points",
         image: 'recycle',
     }, 
     {
         title: "Vegetarian For a Week",
-        pts: "100 pts",
+        description: "Eat vegetarian food for a full week",
+        pts: "100 points",
         image: 'greenDream',
     }, 
     {
         title: "Reuseable Water Bottles for a Week",
-        pts: "40 pts",
+        description: "Don't use any single use plastic water bottles all week",
+        pts: "40 points",
         image: 'waterbottle',
     }, 
     {
         title: "Bike to Work",
-        pts: "20 pts",
+        description: "Replace your commute with a bike ride",
+        pts: "20 points",
         image: 'bike',
     }, 
     {
         title: "Beach Clean-up Day",
-        pts: "50 pts",
+        description: "Volunteer at a local beach clean up for at least 4 hours",
+        pts: "50 points",
         image: 'beach',
     }
 ]
