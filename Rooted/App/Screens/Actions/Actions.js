@@ -8,18 +8,24 @@ export default function Action( {navigation} ) {
         <SafeAreaView>
             <ScrollView style={styles.scrollContainer}>
                 <View style={styles.container}>
+                    <View style={styles.pointsToLead}>
+                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Points to take the Lead</Text>
+                    </View>
                     <View style={styles.percentageView}>
                         <View style={styles.percentageCard} >
-                            <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.mediumBlue}}>1</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>Challenge in Progress</Text>
+                            <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.mediumBlue }}>Stanford Eco Week</Text>
+                            <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.mediumBlue}}>273</Text>
+                            <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>pts</Text>
                         </View>
                         <View style={styles.percentageCard}>
+                            <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.grassGreen }}>Energy Marathon</Text>
                             <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.grassGreen}}>50</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>Actions Completed</Text>
+                            <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>pts</Text>
                         </View>
                         <View style={styles.percentageCard}>
-                            <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.darkGreen}}>6</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.darkGreen }}>Challenges Completed</Text>
+                            <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.darkGreen }}>Green Revolution</Text>
+                            <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.darkGreen}}>35</Text>
+                            <Text style={{ textAlign: 'center', color: Colors.darkGreen }}>pts</Text>
                         </View>
                     </View>
                     <View style={styles.actionsProgressOverview}>
@@ -27,38 +33,61 @@ export default function Action( {navigation} ) {
                     </View>
                     <View style={styles.tasks}>
                         <View style={styles.taskView}>
+                            <Image source={Images[global.actionsInProgress[0].image]} style={styles.taskPhoto}></Image>
                             <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>Recycle 3 Times</Text>
+                                <Text style={styles.titleText}>{global.actionsInProgress[0].title}</Text>
+                                <Text style={styles.ptsText}>{global.actionsInProgress[0].pts}</Text>
                             </View>
                         </View>
                         <View style={styles.taskView}>
+                        <Image source={Images[global.actionsInProgress[1].image]} style={styles.taskPhoto}></Image>
                             <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>Vegetarian for a Week</Text>
+                                <Text style={styles.titleText}>{global.actionsInProgress[1].title}</Text>
+                                <Text style={styles.ptsText}>{global.actionsInProgress[1].pts}</Text>
                             </View>
                         </View>
 
                         <View style={styles.taskView}>
+                            <Image source={Images[global.actionsInProgress[2].image]} style={styles.taskPhoto}></Image>
                             <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>Reusable Water Bottles</Text>
+                                <Text style={styles.titleText}>{global.actionsInProgress[2].title}</Text>
+                                <Text style={styles.ptsText}>{global.actionsInProgress[2].pts}</Text>
                             </View>
                         </View>
 
                         <View style={styles.taskView}>
+                            <Image source={Images[global.actionsInProgress[3].image]} style={styles.taskPhoto}></Image>
                             <View style={styles.bodyTextView}>
-                                <Text style={styles.bodyText}>Bike to Work</Text>
+                                <Text style={styles.titleText}>{global.actionsInProgress[3].title}</Text>
+                                <Text style={styles.ptsText}>{global.actionsInProgress[3].pts}</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.taskView}>
+                            <Image source={Images[global.actionsInProgress[4].image]} style={styles.taskPhoto}></Image>
+                            <View style={styles.bodyTextView}>
+                                <Text style={styles.titleText}>{global.actionsInProgress[4].title}</Text>
+                                <Text style={styles.ptsText}>{global.actionsInProgress[4].pts}</Text>
                             </View>
                         </View>
                     </View>
                 </View>
             </ScrollView>
             <View style={styles.customButtonBox}>
-            <TouchableOpacity onPress={() => {
-                            console.log("Pressed");
-                            global.activitiesList = ["Hello!"];
-                navigation.navigate('CustomAction');
-            }}><View style={styles.customButton}><Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
-                </View>
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                                console.log("Pressed");
+                                global.activitiesList = ["Hello!"];
+                    navigation.navigate('Custom Action');
+                }}><View style={styles.customButton}><Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                                console.log("Pressed");
+                                global.activitiesList = ["Hello!"];
+                    navigation.navigate('Browse Actions');
+                }}><View style={styles.customButton}><Text style={styles.customButtonText}>BROWSE FOR ACTIONS</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
@@ -69,7 +98,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        height: Metrics.screenHeight*.71
+        height: Metrics.screenHeight*.72
     },
     title: {
         justifyContent: 'space-between',
@@ -78,6 +107,13 @@ const styles = StyleSheet.create({
         height: 40,
         marginTop: 25,
         marginBottom: 10,
+    },
+    pointsToLead: {
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        margin: 10,
+        marginTop: 15,
+        width: Metrics.screenWidth * 0.9,
     },
     actionsProgressOverview: {
         justifyContent: 'flex-start',
@@ -115,7 +151,7 @@ const styles = StyleSheet.create({
     percentageCard: {
         height: 120,
         width: Metrics.screenWidth * 0.8 / 3,
-        backgroundColor: Colors.lightGrey,
+        backgroundColor: Colors.lightBlue,
         justifyContent: 'space-evenly',
         alignItems: 'center',
         borderRadius: 10,
@@ -128,22 +164,24 @@ const styles = StyleSheet.create({
         height: 300,
     },
     customButtonBox: {
-        flex: 1,
-        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
     },
     customButton: {
-        width: 308,
-        height: 48,
+        width: 190,
+        height: 60,
         borderRadius: 20,
         backgroundColor: Colors.darkGreen,
-        margin: 20,
+        margin: 0,
+        marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
     },
     customButtonText: {
         color: 'white',
         fontSize: 20,
+        textAlign: 'center'
     },
     dashBack: {
         alignItems: 'center',
@@ -200,24 +238,32 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     taskView: {
-        height: Metrics.screenHeight * 0.1,
-        width: Metrics.screenWidth * .8,
-        backgroundColor: Colors.lightGrey,
-        justifyContent: 'space-evenly',
+        flexDirection: 'row',
+        height: Metrics.screenHeight * 0.085,
+        width: Metrics.screenWidth * .9,
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        borderRadius: 50,
-        margin: 10,
+        borderRadius: 20,
+        margin: 5,
+        borderWidth: 2,
+        borderColor: Colors.lightGrey,
     },
     bodyTextView: {
-        width: 120,
+        width: 200,
     },
-    bodyText: {
-        fontSize: 15,
+    titleText: {
+        fontSize: 18,
+        fontWeight: 'bold'
     },
-    teamPhoto: {
-        height: 40,
-        width: 40,
-        resizeMode: 'contain'
+    ptsText: {
+        fontSize: 12,
+    },
+    taskPhoto: {
+        height: Metrics.screenHeight * 0.07,
+        width: Metrics.screenHeight * 0.07,
+        marginLeft: 10,
+        marginRight: 10,
+        borderRadius: 5
     },
     goButton: {
         height: 25,

@@ -40,6 +40,10 @@ const Images = {
     jake: require('../Images/jake.png'),
     energyMarathon: require('../Images/energyMarathon.png'),
     leaderboard: require('../Images/leaderboard.png'),
+    recycle: require('../Images/recycle.jpg'),
+    bike: require('../Images/biking.jpg'),
+    beach: require('../Images/beach.jpg'),
+    waterbottle: require('../Images/waterbottle.jpg')
 }
 
 export default Images

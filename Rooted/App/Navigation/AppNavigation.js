@@ -23,14 +23,15 @@ function FeedStackComponent() {
 }
 
 /* Actions */
-import { Actions, CustomAction } from '../Screens/Actions';
+import { Actions, CustomAction, BrowseAction } from '../Screens/Actions';
 
 const ActionsStack = createStackNavigator();
 function ActionsStackComponent() {
     return (
         <ActionsStack.Navigator headerMode="float">
             <ActionsStack.Screen name="Actions" component={Actions} />
-            <ActionsStack.Screen name="CustomAction" component={CustomAction} />
+            <ActionsStack.Screen name="Custom Action" component={CustomAction} />
+            <ActionsStack.Screen name="Browse Actions" component={BrowseAction} />
         </ActionsStack.Navigator>
     );
 }
