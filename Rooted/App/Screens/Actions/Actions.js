@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
 import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function Action( {navigation} ) {
+    const [varRan, setVarRan] = useState(0);
+    global.updateActionCenter = () => {
+        setVarRan(varRan+1);
+    }
     return (
         <SafeAreaView>
             <ScrollView style={styles.scrollContainer}>
@@ -32,8 +36,8 @@ export default function Action( {navigation} ) {
                         <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Actions in Progress</Text>
                     </View>
                     <View style={styles.tasks}>
-                        {global.actionsInProgress.map(action => (
-                        <TouchableOpacity key={action.pts} onPress={() => {
+                        {global.actionsInProgress.map( (action, index) => (
+                        <TouchableOpacity key={index} onPress={() => {
                             navigation.navigate('Complete an Action', action);
                         }}>
                             <View style={styles.taskView}>
