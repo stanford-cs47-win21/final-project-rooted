@@ -41,6 +41,20 @@ global.actionsInProgress = [
     }
 ]
 
+global.actionsCompleted = [
+    {
+        profile : '',
+        challenge : '',
+        timePosted : '',
+        title : '',
+        description : '',
+        pts : '',
+        image : '',
+        likes : '',
+        comments : []
+    }
+]
+
 // To test out screens, import the screen.js file from the Screens folder and paste it into the return function for App()
 
 //import ProfileScreen from './App/Screens/ProfileScreen';

@@ -4,16 +4,13 @@ import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpaci
 import { AntDesign } from '@expo/vector-icons';
 import {Picker} from '@react-native-picker/picker';
 import { TextInput } from 'react-native-gesture-handler';
-
-var imageAdded = true;
-var description = '';
-var disabled = true;
-
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function LogAction( {route, navigation} ) {
     var action = route.params;
-    const [selectedLanguage, setSelectedLanguage] = useState();
-    const [disabled, setDisabled] = useState(true);
+    const [selectedLanguage, setSelectedLanguage] = useState('Energy Marathon');
+    const [imageAdded, setImageAdded]=  useState(false);
+    const [description, setDescription] = useState('');
     return (
         <View style={styles.container}>
             <View style={styles.infoContainer}>
@@ -26,37 +23,51 @@ export default function LogAction( {route, navigation} ) {
                 <View style={styles.title}>
                     <Text style={{ fontSize: 18, fontStyle: 'italic', textAlign: 'center' }}>{action.description}</Text>
                 </View>
+                <TouchableOpacity style={styles.photo} onPress={()=>{
+                    setImageAdded(true);
+                }}>
+                    {imageAdded ? <Image source={Images['recycle']} style={styles.photo}></Image>
+                    : <MaterialCommunityIcons name="camera-plus-outline" size={110} color="black" />}
+                </TouchableOpacity>
                 <View style={styles.description}>
                     <TextInput
                         onChangeText={ (text) => {
-                            description = text;
-                            if (text !== '' && imageAdded) {
-                                setDisabled(false);
-                            }
+                            setDescription(text);
                         }}
                         multiline={true}
                         placeholder={"Caption your action"}
                         style={styles.descriptionInput}>
                     </TextInput>
                 </View>
-                <View>
-                    <Text style={{ fontSize: 18}}>Add Points to this Challenge:</Text>
+                <View style={styles.challengePick}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold'}}>Add Points to this Challenge:</Text>
                     <Picker
-                        selectedValue={selectedLanguage ? selectedLanguage : 'energyMarathon'}
+                        selectedValue={selectedLanguage}
                         onValueChange={(itemValue, itemIndex) =>
                             setSelectedLanguage(itemValue)
-                        }>
-                        <Picker.Item label="Stanford Eco Week" value="stanfordEcoWeek" />
-                        <Picker.Item label="Energy Marathon" value="energyMarathon" />
-                        <Picker.Item label="Green Revolution" value="greenRevolution" />
+                        }
+                        style={styles.picker}>
+                        <Picker.Item label="Stanford Eco Week" value="Stanford EcoWeek" />
+                        <Picker.Item label="Energy Marathon" value="Energy Marathon" />
+                        <Picker.Item label="Green Revolution" value="Green Revolution" />
                     </Picker>
                 </View>
             </View>
             <TouchableOpacity onPress={() => {
-                                if (description !== '' && photoCompleted) {
+                                if (description !== '' && imageAdded) {
                                     console.log("Pressed");
-                                    global.activitiesList = ["Hello!"];
-                                    navigation.navigate('Custom Action');
+                                    var postInfo = {
+                                        profile : 'Clara MacAvoy',
+                                        challenge : selectedLanguage,
+                                        timePosted : 'now',
+                                        title : action.title,
+                                        description : description,
+                                        pts : action.pts,
+                                        image : 'recycle',
+                                        likes : 0,
+                                        comments : []
+                                    }
+                                    navigation.navigate('Post Preview', postInfo);
                                 } else if (description === '') {
                                     Alert.alert('Please add a description')
                                 } else  {
@@ -64,7 +75,7 @@ export default function LogAction( {route, navigation} ) {
                                 }
                                 
                 }}>
-                    <View style={disabled ? styles.customButtonDisabled : styles.customButton}>
+                    <View style={!(description !== '' && imageAdded) ? styles.customButtonDisabled : styles.customButton}>
                         <Text style={styles.customButtonText}>COMPLETE</Text>
                     </View>
             </TouchableOpacity>
@@ -87,7 +98,7 @@ const styles = StyleSheet.create({
         height: Metrics.screenHeight * .1,
         alignContent: "center",
         justifyContent: 'center',   
-     
+        marginBottom: 10
     },
     descriptionInput : {
         backgroundColor: Colors.lightGrey,
@@ -135,4 +146,20 @@ const styles = StyleSheet.create({
         marginTop: 10,
         width: Metrics.screenWidth * 0.9,
     },
+    photo : {
+        height: 175,
+        width: 175,
+        borderWidth: 4,
+        borderColor: Colors.darkGrey,
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10
+    },
+    picker : {
+        marginTop: -20
+    },
+    challengePick : {
+        marginTop: 10
+    }
 })
