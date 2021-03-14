@@ -23,7 +23,7 @@ function FeedStackComponent() {
 }
 
 /* Actions */
-import { Actions, CustomAction, BrowseAction, LogAction, PostPreview } from '../Screens/Actions';
+import { Actions, CustomAction, BrowseAction, LogAction, PostPreview, PointCalibrator } from '../Screens/Actions';
 
 const ActionsStack = createStackNavigator();
 function ActionsStackComponent() {
@@ -34,6 +34,7 @@ function ActionsStackComponent() {
             <ActionsStack.Screen name="Browse Actions" component={BrowseAction} />
             <ActionsStack.Screen name="Complete an Action" component={LogAction} />
             <ActionsStack.Screen name="Post Preview" component={PostPreview} />
+            <ActionsStack.Screen name="Point Calibrator" component={PointCalibrator} />
         </ActionsStack.Navigator>
     );
 }
