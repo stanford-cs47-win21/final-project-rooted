@@ -29,7 +29,6 @@ export default function FeedItemPreview(item) {
             <Image source={Images[item.image]} style={styles.image}></Image>
             <View style={styles.engagementContainer}>
                 <View style={styles.engagementItem}>
-                    {/* <AntDesign name="hearto" size={20}/> */}
                     <AntDesign name={name} size={20} color={color}/>
                     <Text style={{marginRight: 5}}>{item.likes}</Text>
                 </View>
@@ -53,12 +52,10 @@ export default function FeedItemPreview(item) {
 const styles = StyleSheet.create({
     itemView: {
         width: Metrics.screenWidth * 0.9,
-        marginTop: 10,
-        marginBottom: 20,
-        borderRadius: 20,
-        borderWidth: 2,
+        marginTop: 20,
         padding: 10,
-        borderColor: Colors.darkGrey
+        borderWidth: 1,
+        borderColor: Colors.mediumGrey,
     },
     head: {
         width: Metrics.screenWidth * 0.9,
@@ -73,7 +70,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         height: 50,
-        width: 247,
+        width: 220,
         justifyContent: 'space-between',
         marginLeft: 20,
     },
@@ -86,7 +83,7 @@ const styles = StyleSheet.create({
         color: Colors.mediumGrey,
     },
     captionContainer: {
-        height: 75,
+        height: 50,
         width: Metrics.screenWidth * 0.9,
     },
     text3: {
@@ -95,10 +92,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     image: {
-        height: 100,
-        width: 100,
-        borderRadius: 10,
-        resizeMode: 'contain'
+        height: Metrics.screenWidth * 0.5,
+        width: Metrics.screenWidth * 0.84,
+        borderRadius: 15,
     },
     engagementContainer: {
         flexDirection: 'row',
@@ -134,7 +130,7 @@ const styles = StyleSheet.create({
     },
     addCommentView: {
         height: 40,
-        width: 295,
+        width: Metrics.screenWidth * 0.7,
         borderRadius: 10,
         backgroundColor: Colors.lightGrey,
         justifyContent: 'center',
