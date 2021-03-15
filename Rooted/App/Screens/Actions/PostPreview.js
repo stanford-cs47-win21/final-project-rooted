@@ -30,7 +30,9 @@ export default function CustomAction( {route, navigation} ) {
                 <TouchableOpacity onPress={() => {
                                 action.id = global.actionsCompleted.length + 1;
                                 global.actionsCompleted.unshift(action);
-                                global.updateFeed();
+                                if (global.updateFeed) {
+                                    global.updateFeed();
+                                }
                                 global.actionsInProgress.splice(action.index, 1);
                                 global.updateActionCenter();
                                 navigation.popToTop();

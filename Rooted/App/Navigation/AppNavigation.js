@@ -98,7 +98,7 @@ export default function AppNavigation() {
     return (
         <NavigationContainer theme={MyTheme}>
             <TabNav.Navigator 
-            initialRouteName="Feed"
+            initialRouteName="Actions"
             screenOptions={({ route }) => ({
                  tabBarIcon: ({ focused, color, size }) => {
                      let iconName;
