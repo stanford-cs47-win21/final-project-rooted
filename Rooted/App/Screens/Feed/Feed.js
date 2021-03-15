@@ -1,12 +1,28 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, SafeAreaView, View, FlatList, TouchableOpacity } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
 import FeedItem from '../../Components/FeedItem';
 
+
+
 export default function Feed() {
     return (
-        <FeedItem></FeedItem>
+        <SafeAreaView style={styles.container}>
+
+            <FlatList
+                data={actionsCompleted}
+                renderItem={({ item }) => FeedItem(item)}
+                keyExtractor={(item) => item.id}
+            />
+        </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+    }
+});
