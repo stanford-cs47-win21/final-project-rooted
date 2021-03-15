@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
 import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 
 export default function Action( {navigation} ) {
     const [varRan, setVarRan] = useState(0);
@@ -9,67 +8,72 @@ export default function Action( {navigation} ) {
         setVarRan(varRan+1);
     }
     return (
-        <SafeAreaView>
-            <ScrollView style={styles.scrollContainer}>
-                <View style={styles.container}>
-                    <View style={styles.pointsToLead}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Points to take the Lead</Text>
-                    </View>
-                    <View style={styles.percentageView}>
-                        <View style={styles.percentageCard} >
-                            <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.mediumBlue }}>Stanford Eco Week</Text>
-                            <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.mediumBlue}}>273</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>points</Text>
-                        </View>
-                        <View style={styles.percentageCard}>
-                            <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.grassGreen }}>Energy Marathon</Text>
-                            <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.grassGreen}}>50</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>points</Text>
-                        </View>
-                        <View style={styles.percentageCard}>
-                            <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.darkGreen }}>Green Revolution</Text>
-                            <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.darkGreen}}>35</Text>
-                            <Text style={{ textAlign: 'center', color: Colors.darkGreen }}>points</Text>
-                        </View>
-                    </View>
-                    <View style={styles.actionsProgressOverview}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Actions in Progress</Text>
-                    </View>
-                    <View style={styles.tasks}>
-                        {global.actionsInProgress.map( (action, index) => (
-                        <TouchableOpacity key={index} onPress={() => {
-                            action.index = index;
-                            navigation.navigate('Complete an Action', action);
-                        }}>
-                            <View style={styles.taskView}>
-                                <Image source={Images[action.image]} style={styles.taskPhoto}></Image>
-                                <View style={styles.bodyTextView}>
-                                    <Text style={styles.titleText}>{action.title}</Text>
-                                    <Text style={styles.ptsText}>{action.pts + " points"}</Text>
-                                </View>
-                            </View>
-                        </TouchableOpacity>
-                        ))}
-                    </View>
+            
+        <View style={styles.container}>
+            <View style={styles.pointsToLead}>
+                <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Points to Take the Lead</Text>
+            </View>
+            <View style={styles.percentageView}>
+                <View style={styles.percentageCard} >
+                    <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.mediumBlue }}>Stanford Eco Week</Text>
+                    <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.mediumBlue}}>273</Text>
+                    <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>points</Text>
                 </View>
+                <View style={styles.percentageCard}>
+                    <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.grassGreen }}>Energy Marathon</Text>
+                    <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.grassGreen}}>50</Text>
+                    <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>points</Text>
+                </View>
+                <View style={styles.percentageCard}>
+                    <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.darkGreen }}>Green Revolution</Text>
+                    <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.darkGreen}}>35</Text>
+                    <Text style={{ textAlign: 'center', color: Colors.darkGreen }}>points</Text>
+                </View>
+            </View>
+            
+            <View style={styles.actionsProgressOverview}>
+                <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Actions in Progress</Text>
+            </View>
+            <ScrollView>
+                <View style={styles.tasks}>
+                    {global.actionsInProgress.map( (action, index) => (
+                    <TouchableOpacity key={index} onPress={() => {
+                        action.index = index;
+                        navigation.navigate('Complete an Action', action);
+                    }}>
+                        <View style={styles.taskView}>
+                            <Image source={Images[action.image]} style={styles.taskPhoto}></Image>
+                            <View style={styles.bodyTextView}>
+                                <Text style={styles.titleText}>{action.title}</Text>
+                                <Text style={styles.ptsText}>{action.pts + " points"}</Text>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    ))}
+                </View>
+            
             </ScrollView>
             <View style={styles.customButtonBox}>
                 <TouchableOpacity onPress={() => {
                                 console.log("Pressed");
                                 global.activitiesList = ["Hello!"];
                     navigation.navigate('Custom Action');
-                }}><View style={styles.customButton}><Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
+                }}>
+                    <View style={styles.customButton}>
+                        <Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
                                 console.log("Pressed");
                                 global.activitiesList = ["Hello!"];
                     navigation.navigate('Browse Actions');
-                }}><View style={styles.customButton}><Text style={styles.customButtonText}>BROWSE FOR ACTIONS</Text>
+                }}>
+                    <View style={styles.customButton}>
+                        <Text style={styles.customButtonText}>BROWSE FOR ACTIONS</Text>
                     </View>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        height: Metrics.screenHeight*.72
+        height: Metrics.screenHeight * .68
     },
     title: {
         justifyContent: 'space-between',
@@ -101,26 +105,6 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         width: Metrics.screenWidth * 0.9,
     },
-    pillView: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        width: Metrics.screenWidth * 0.9,
-        height: 40,
-        marginTop: 10,
-        marginBottom: 20,
-    },
-    timePill: {
-        height: 24.14,
-        width: 92.18,
-        borderRadius: 46.09,
-        backgroundColor: 'white',
-        margin: 5, 
-    },
-    pillText: {
-        fontSize: 12,
-        marginTop: 3,
-        textAlign: 'center',
-    },
     percentageView: {
         height: 150,
         width: Metrics.screenWidth * 0.9,
@@ -131,87 +115,11 @@ const styles = StyleSheet.create({
     percentageCard: {
         height: 120,
         width: Metrics.screenWidth * 0.8 / 3,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.lightGrey,
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        borderRadius: 10,
-    },
-    walletSection: {
-        marginTop: 5,
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        width: Metrics.screenWidth * 0.9,
-        height: 300,
-    },
-    customButtonBox: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-    },
-    customButton: {
-        width: 175,
-        height: 60,
-        borderRadius: 20,
-        backgroundColor: Colors.darkGreen,
-        margin: 0,
-        marginTop: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    customButtonText: {
-        color: 'white',
-        fontSize: 20,
-        textAlign: 'center'
-    },
-    dashBack: {
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-    },
-    combinedButtonsView: {
-        height: 45,
-        width: 316,
-        flexDirection: 'row',
-        backgroundColor: 'white',
-        borderRadius: 22.5,
-        marginTop: 50,
-        marginBottom: 30, 
-    },
-    teamsButton: {
-        height: 45,
-        width: 316/2,
-        borderTopLeftRadius: 22.5,
-        borderBottomLeftRadius: 22.5,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRightWidth: 0.5,
-        borderRightColor: Colors.lightGrey,
-        backgroundColor: 'white',
-        borderLeftWidth: 0.5,
-        borderLeftColor: Colors.lightGrey,
-        borderTopWidth: 0.5,
-        borderTopColor: Colors.lightGrey,
-        borderBottomWidth: 0.5,
-        borderBottomColor: Colors.lightGrey,
-    },
-    challengeButton: {
-        height: 45,
-        width: 316/2,
-        borderTopRightRadius: 22.5,
-        borderBottomRightRadius: 22.5,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderLeftWidth: 0.5,
-        borderColor: Colors.lightGrey,
-        backgroundColor: 'white',
-        borderRightWidth: 0.5,
-        borderRightColor: Colors.lightGrey,
-        borderTopWidth: 0.5,
-        borderTopColor: Colors.lightGrey,
-        borderBottomWidth: 0.5,
-        borderBottomColor: Colors.lightGrey,
-    },
-    buttonText: {
-        fontSize: 14,
+        borderRadius: 15,
+        padding: 5,
     },
     tasks: {
         justifyContent: 'center',
@@ -219,24 +127,13 @@ const styles = StyleSheet.create({
     },
     taskView: {
         flexDirection: 'row',
-        height: Metrics.screenHeight * 0.085,
+        height: Metrics.screenHeight * 0.08,
         width: Metrics.screenWidth * .9,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        borderRadius: 20,
+        borderRadius: 15,
         margin: 5,
-        borderWidth: 2,
-        borderColor: Colors.lightGrey,
-    },
-    bodyTextView: {
-        width: 200,
-    },
-    titleText: {
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
-    ptsText: {
-        fontSize: 12,
+        backgroundColor: Colors.lightBlue,
     },
     taskPhoto: {
         height: Metrics.screenHeight * 0.07,
@@ -245,14 +142,36 @@ const styles = StyleSheet.create({
         marginRight: 10,
         borderRadius: 5
     },
-    goButton: {
-        height: 25,
-        width: 25,
-        resizeMode: 'contain',
+    bodyTextView: {
+        width: 200,
     },
-    plusButton: {
-        height: 62,
-        resizeMode: 'contain',
-        marginBottom: 30,
-    }
+    titleText: {
+        fontSize: 18,
+    },
+    ptsText: {
+        fontSize: 12,
+        color: Colors.darkGrey,
+        marginTop: 5,
+    },
+    customButtonBox: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: Metrics.screenWidth * 0.9,
+    },
+    customButton: {
+        width: 155,
+        height: 45,
+        borderRadius: 160/2,
+        backgroundColor: Colors.grassGreen,
+        marginTop: 10,
+        marginBottom: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    customButtonText: {
+        color: 'white',
+        fontSize: 15,
+        textAlign: 'center'
+    },
 });
