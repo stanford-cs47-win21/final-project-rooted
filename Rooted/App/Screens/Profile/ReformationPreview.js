@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
 import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 
 
 export default function ReformationPreview() {
@@ -62,16 +62,19 @@ export default function ReformationPreview() {
                                 </View>
                             </View>
                         </View>
-
                         <View style={styles.mapContainer}>
                             <MapView style={styles.map}
                                 initialRegion={{
-                                latitude: 34.083507,
+                                latitude: 34.083587,
                                 longitude: -118.363907,
-                                latitudeDelta: 0.0003,
-                                longitudeDelta: 0.0002,
+                                latitudeDelta: 0.0005,
+                                longitudeDelta: 0.0004,
                                 }}
-                            />
+                            ><Marker coordinate={{
+                                    latitude: 34.083587,
+                                    longitude: -118.363907}}>
+                                </Marker>
+                                </MapView>
                         </View>
 
                         <View style={styles.buttonView}>
