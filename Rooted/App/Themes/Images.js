@@ -3,6 +3,8 @@
 const Images = {
     Clara: require('../Images/Clara.jpg'),
     Nicole: require('../Images/Nicole.jpg'),
+    Morgan: require('../Images/Morgan.png'),
+    Jordan: require('../Images/Jordan.jpg'),
     wallet: require('../Images/wallet.png'),
     giftcards: require('../Images/giftcards.png'),
     locali: require('../Images/locali.png'),
@@ -45,7 +47,9 @@ const Images = {
     bike: require('../Images/biking.jpg'),
     beach: require('../Images/beach.jpg'),
     waterbottle: require('../Images/waterbottle.jpg'),
-    groceries: require('../Images/groceries.png')
+    groceries: require('../Images/groceries.png'),
+    sort: require('../Images/sort.png'),
+    led: require('../Images/led.jpg')
 }
 
 export default Images

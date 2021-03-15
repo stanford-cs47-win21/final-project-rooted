@@ -4,6 +4,13 @@ import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, Touchable
 import { AntDesign, Entypo, FontAwesome } from '@expo/vector-icons';
 
 export default function FeedItem(item) {
+    let name = "hearto";
+    let color = "black"
+    if (item.liked === 'true') {
+        name = "heart"
+        color = "red"
+    };
+
     return (
         <View style={styles.itemView}>
             <View style={styles.head}>
@@ -22,7 +29,8 @@ export default function FeedItem(item) {
             <Image source={Images[item.image]} style={styles.image}></Image>
             <View style={styles.engagementContainer}>
                 <View style={styles.engagementItem}>
-                    <AntDesign name="hearto" size={20}/>
+                    {/* <AntDesign name="hearto" size={20}/> */}
+                    <AntDesign name={name} size={20} color={color}/>
                     <Text style={{marginRight: 5}}>{item.likes}</Text>
                 </View>
                 <View style={styles.engagementItem}>
@@ -46,6 +54,7 @@ const styles = StyleSheet.create({
     itemView: {
         height: 500,
         width: Metrics.screenWidth * 0.9,
+        marginTop: 10,
     },
     head: {
         width: Metrics.screenWidth * 0.9,
