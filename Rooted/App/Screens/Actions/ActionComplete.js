@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
-import ProgressBar from 'react-native-progress/Bar';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 
 export default function ActionComplete( {route, navigation} ) {
     var action = route.params
@@ -20,9 +18,9 @@ export default function ActionComplete( {route, navigation} ) {
                                 global.updateActionCenter();
                                 navigation.navigate('Action Center')
                             }}>
-                                <View style={styles.customButton}><Text style={styles.customButtonText}>DONE</Text>
-                    </View>
-                            </TouchableOpacity>
+                <View style={styles.customButton}><Text style={styles.customButtonText}>DONE</Text>
+                </View>
+            </TouchableOpacity>
         </View>
     );
 }

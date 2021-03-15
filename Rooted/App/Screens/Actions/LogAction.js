@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { StyleSheet, Image, Text, View, TouchableOpacity, Alert, ImageBackground } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import { TextInput } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
@@ -13,7 +12,18 @@ export default function LogAction( {route, navigation} ) {
     const [description, setDescription] = useState('');
     return (
         <View style={styles.container}>
-            <View style={styles.infoContainer}>
+             <ImageBackground 
+            source={Images.background2} 
+            resizeMode='contain' 
+            style={ [ { justifyContent: 'flex-start',
+                alignItems: 'center',
+                height: Metrics.screenHeight, 
+                width: Metrics.screenWidth, 
+                paddingTop: 10,
+                } 
+            ]}
+            >
+
                 <View style={styles.title}>
                     <Text style={{ fontSize: 32, textAlign: 'center' }}>{action.title}</Text>
                 </View>
@@ -21,66 +31,74 @@ export default function LogAction( {route, navigation} ) {
                     <Text style={{ fontSize: 24, textAlign: 'center', color: Colors.grassGreen }}>{action.pts + " points"}</Text>
                 </View>
                 <View style={styles.title}>
-                    <Text style={{ fontSize: 18, fontStyle: 'italic', textAlign: 'center' }}>{action.description}</Text>
+                    <Text style={{ fontSize: 15, textAlign: 'left', marginBottom: 10 }}>{action.description}</Text>
                 </View>
+
+                {/* Image */ }
                 <TouchableOpacity style={styles.photo} onPress={()=>{
                     setImageAdded(true);
                 }}>
-                    {imageAdded ? <Image source={Images['recycle']} style={styles.photo}></Image>
+                    {imageAdded ? <Image source={Images['recycle']} style={[styles.photo, {borderWidth: 0} ]}></Image>
                     : <MaterialCommunityIcons name="camera-plus-outline" size={110} color="black" />}
                 </TouchableOpacity>
-                <View style={styles.description}>
+
+                {/* Caption */}
+                <View style={styles.caption}>
                     <TextInput
                         onChangeText={ (text) => {
                             setDescription(text);
                         }}
                         multiline={true}
                         placeholder={"Caption your action"}
-                        style={styles.descriptionInput}>
+                        style={styles.captionInput}>
                     </TextInput>
                 </View>
+
+                {/* Pick Challenge */}
                 <View style={styles.challengePick}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold'}}>Add Points to this Challenge:</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold'}}>Add Points to Challenge:</Text>
                     <Picker
                         selectedValue={selectedLanguage}
                         onValueChange={(itemValue, itemIndex) =>
                             setSelectedLanguage(itemValue)
                         }
-                        style={styles.picker}>
-                        <Picker.Item label="Stanford Eco Week" value="Stanford EcoWeek" />
+                        style={styles.picker}
+                        itemStyle={{ height: 105 }}>
+                        <Picker.Item label="Stanford Eco Week" value="Stanford EcoWeek"/>
                         <Picker.Item label="Energy Marathon" value="Energy Marathon" />
                         <Picker.Item label="Green Revolution" value="Green Revolution" />
                     </Picker>
                 </View>
-            </View>
-            <TouchableOpacity onPress={() => {
-                                if (description !== '' && imageAdded) {
-                                    console.log("Pressed");
-                                    var postInfo = {
-                                        name : 'Clara MacAvoy',
-                                        profilePic : 'Clara',
-                                        challenge : selectedLanguage,
-                                        timePosted : 'now',
-                                        caption : description,
-                                        points : action.pts.toString(),
-                                        image : 'recycle',
-                                        likes : 0,
-                                        comments : 0,
-                                        liked : false,
-                                        index : action.index
+            
+
+                <TouchableOpacity onPress={() => {
+                                    if (description !== '' && imageAdded) {
+                                        console.log("Pressed");
+                                        var postInfo = {
+                                            name : 'Clara MacAvoy',
+                                            profilePic : 'Clara',
+                                            challenge : selectedLanguage,
+                                            timePosted : 'now',
+                                            caption : description,
+                                            points : action.pts.toString(),
+                                            image : 'recycle',
+                                            likes : 0,
+                                            comments : 0,
+                                            liked : false,
+                                            index : action.index
+                                        }
+                                        navigation.navigate('Post Preview', postInfo);
+                                    } else if (description === '') {
+                                        Alert.alert('Please add a description')
+                                    } else  {
+                                        Alert.alert('Please add a photo')
                                     }
-                                    navigation.navigate('Post Preview', postInfo);
-                                } else if (description === '') {
-                                    Alert.alert('Please add a description')
-                                } else  {
-                                    Alert.alert('Please add a photo')
-                                }
-                                
-                }}>
-                    <View style={!(description !== '' && imageAdded) ? styles.customButtonDisabled : styles.customButton}>
-                        <Text style={styles.customButtonText}>COMPLETE</Text>
-                    </View>
-            </TouchableOpacity>
+                    }}>
+                        <View style={!(description !== '' && imageAdded) ? styles.customButtonDisabled : styles.customButton}>
+                            <Text style={styles.customButtonText}>COMPLETE</Text>
+                        </View>
+                </TouchableOpacity>
+            </ImageBackground>
         </View>
     );
 }
@@ -91,36 +109,56 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
-    infoContainer : {
-        height : Metrics.screenHeight * .72,
-        justifyContent: 'flex-start',
+    title : {
+        justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 10,
+        width: Metrics.screenWidth * 0.9,
     },
-    description : {
+    photo : {
+        height: 170,
+        width: 170,
+        borderWidth: 1,
+        borderColor: Colors.mediumGrey,
+        borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    caption : {
         height: Metrics.screenHeight * .1,
         alignContent: "center",
         justifyContent: 'center',   
-        marginBottom: 10
+        marginBottom: 10,
     },
-    descriptionInput : {
+    captionInput : {
         backgroundColor: Colors.lightGrey,
-        height: Metrics.screenHeight * .1,
+        height: Metrics.screenHeight * .08,
         width: Metrics.screenWidth  * .85,
-        borderRadius: 20,
+        borderRadius: 15,
         borderLeftWidth: 10,
         borderTopWidth: 5,
         borderRightWidth: 10,
         borderColor: Colors.lightGrey
     },
+    picker : {
+        marginTop: 5,
+    },
+    challengePick : {
+        marginTop: 5
+    },
     customButtonBox: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
+        height: 20,
+        backgroundColor: 'green'
     },
     customButton: {
         width: 190,
-        height: 60,
-        borderRadius: 20,
+        height: 45,
+        borderRadius: 190/2,
         backgroundColor: Colors.darkGreen,
         margin: 0,
         marginTop: 10,
@@ -129,10 +167,9 @@ const styles = StyleSheet.create({
     },
     customButtonDisabled: {
         width: 190,
-        height: 60,
-        borderRadius: 20,
+        height: 45,
+        borderRadius: 190/2,
         backgroundColor: Colors.lightGrey,
-        margin: 0,
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -142,26 +179,4 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center'
     },
-    title : {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10,
-        width: Metrics.screenWidth * 0.9,
-    },
-    photo : {
-        height: 175,
-        width: 175,
-        borderWidth: 4,
-        borderColor: Colors.darkGrey,
-        borderRadius: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 10
-    },
-    picker : {
-        marginTop: -20
-    },
-    challengePick : {
-        marginTop: 10
-    }
 })

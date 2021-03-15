@@ -22,7 +22,7 @@ global.actionsInProgress = [
         image: 'greenDream',
     }, 
     {
-        title: "Reuseable Water Bottles for a Week",
+        title: "Reuseable Bottle Week",
         description: "Don't use any single use plastic water bottles all week",
         pts: "40",
         image: 'waterbottle',

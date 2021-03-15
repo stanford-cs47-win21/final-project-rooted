@@ -68,6 +68,7 @@ const Images = {
     reformation: require('../Images/reformation.png'),
     ecoroots: require('../Images/ecoroots.jpeg'),
     salad: require('../Images/salad.png'),
+    background2: require('../Images/background2.png')
 }
 
 export default Images

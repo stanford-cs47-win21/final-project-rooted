@@ -39,7 +39,7 @@ export default function Action( {navigation} ) {
                     {global.actionsInProgress.map( (action, index) => (
                     <TouchableOpacity key={index} onPress={() => {
                         action.index = index;
-                        navigation.navigate('Complete an Action', action);
+                        navigation.navigate('Complete Action', action);
                     }}>
                         <View style={styles.taskView}>
                             <Image source={Images[action.image]} style={styles.taskPhoto}></Image>
@@ -164,8 +164,8 @@ const styles = StyleSheet.create({
         height: 45,
         borderRadius: 160/2,
         backgroundColor: Colors.grassGreen,
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: 15,
+        marginBottom: 15,
         justifyContent: 'center',
         alignItems: 'center',
     },

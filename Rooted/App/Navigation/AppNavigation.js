@@ -41,7 +41,7 @@ function ActionsStackComponent() {
             <ActionsStack.Screen name="Action Center" component={Actions} />
             <ActionsStack.Screen name="Custom Action" component={CustomAction} />
             <ActionsStack.Screen name="Browse Actions" component={BrowseAction} />
-            <ActionsStack.Screen name="Complete an Action" component={LogAction} />
+            <ActionsStack.Screen name="Complete Action" component={LogAction} />
             <ActionsStack.Screen name="Post Preview" component={PostPreview} />
             <ActionsStack.Screen name="Point Calibrator" component={PointCalibrator} />
             <ActionsStack.Screen name="Action Created" component={ActionComplete} />
