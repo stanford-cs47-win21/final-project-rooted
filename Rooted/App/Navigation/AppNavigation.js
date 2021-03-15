@@ -40,8 +40,8 @@ function ActionsStackComponent() {
         <ActionsStack.Navigator headerMode="float">
             <ActionsStack.Screen name="Action Center" component={Actions} />
             <ActionsStack.Screen name="Custom Action" component={CustomAction} />
-            <ActionsStack.Screen name="Browse Actions" component={BrowseAction} />
-            <ActionsStack.Screen name="Complete Action" component={LogAction} />
+            <ActionsStack.Screen name="Browse Actions" component={BrowseAction} options={{title: null}} />
+            <ActionsStack.Screen name="Complete Action" component={LogAction} options={{title: "Log Completed Action"}}  />
             <ActionsStack.Screen name="Post Preview" component={PostPreview} />
             <ActionsStack.Screen name="Point Calibrator" component={PointCalibrator} />
             <ActionsStack.Screen name="Action Created" component={ActionComplete} />
@@ -58,7 +58,7 @@ function DashboardStackComponent() {
         <DashboardStack.Navigator headerMode="float">
             <DashboardStack.Screen name="Dashboard" component={DashboardTeamsOverview} options={{ animationEnabled: false }}/>
             <DashboardStack.Screen name="joinTeamScreen" component={joinTeamScreen} options={{title: 'Discover'}} />
-            <DashboardStack.Screen name="TeamScreen" component={TeamScreen} />
+            <DashboardStack.Screen name="TeamScreen" component={TeamScreen}options={{title: null}} />
             <DashboardStack.Screen name="ChallengesOverview" component={ChallengesOverview} options={{ animationEnabled: false, headerLeft: null, title: 'Dashboard' }}/>
             <DashboardStack.Screen name="Leaderboard" component={Leaderboard} />
         </DashboardStack.Navigator>
@@ -73,12 +73,12 @@ function ProfileStackComponent() {
     return (
         <ProfileStack.Navigator headerMode="float">
             <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-            <ProfileStack.Screen name="WalletOverview" component={WalletOverview} />
-            <ProfileStack.Screen name="WalletLocali" component={WalletLocali} options={{ animationEnabled: false, }} />
+            <ProfileStack.Screen name="WalletOverview" component={WalletOverview} options={{title: "Wallet"}} />
+            <ProfileStack.Screen name="WalletLocali" component={WalletLocali} options={{ animationEnabled: false, title: "Wallet" }} />
             <ProfileStack.Screen name="CongratsWon" component={CongratsWon} />
             <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} />
             <ProfileStack.Screen name="Stores" component={Stores} />
-            <ProfileStack.Screen name="ReformationPreview" component={ReformationPreview} options={{ animationEnabled: false, }} />
+            <ProfileStack.Screen name="ReformationPreview" component={ReformationPreview} options={{ animationEnabled: false, title: null}} />
         </ProfileStack.Navigator>
     );
 }

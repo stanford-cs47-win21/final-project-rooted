@@ -60,7 +60,7 @@ export default function Action( {navigation} ) {
                     navigation.navigate('Custom Action');
                 }}>
                     <View style={styles.customButton}>
-                        <Text style={styles.customButtonText}>CREATE CUSTOM ACTION</Text>
+                        <Text style={styles.customButtonText}>CUSTOM ACTION</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
@@ -69,7 +69,7 @@ export default function Action( {navigation} ) {
                     navigation.navigate('Browse Actions');
                 }}>
                     <View style={styles.customButton}>
-                        <Text style={styles.customButtonText}>BROWSE FOR ACTIONS</Text>
+                        <Text style={styles.customButtonText}>BROWSE ACTIONS</Text>
                     </View>
                 </TouchableOpacity>
             </View>
