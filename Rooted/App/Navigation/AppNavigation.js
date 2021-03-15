@@ -32,7 +32,7 @@ function FeedStackComponent() {
 }
 
 /* Actions */
-import { Actions, CustomAction, BrowseAction, LogAction, PostPreview, PointCalibrator } from '../Screens/Actions';
+import { Actions, CustomAction, BrowseAction, LogAction, PostPreview, PointCalibrator, ActionComplete } from '../Screens/Actions';
 
 const ActionsStack = createStackNavigator();
 function ActionsStackComponent() {
@@ -44,6 +44,7 @@ function ActionsStackComponent() {
             <ActionsStack.Screen name="Complete an Action" component={LogAction} />
             <ActionsStack.Screen name="Post Preview" component={PostPreview} />
             <ActionsStack.Screen name="Point Calibrator" component={PointCalibrator} />
+            <ActionsStack.Screen name="Action Created" component={ActionComplete} />
         </ActionsStack.Navigator>
     );
 }
@@ -97,7 +98,7 @@ export default function AppNavigation() {
     return (
         <NavigationContainer theme={MyTheme}>
             <TabNav.Navigator 
-            initialRouteName="Actions"
+            initialRouteName="Feed"
             screenOptions={({ route }) => ({
                  tabBarIcon: ({ focused, color, size }) => {
                      let iconName;

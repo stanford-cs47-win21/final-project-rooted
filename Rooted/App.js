@@ -44,7 +44,7 @@ global.actionsInProgress = [
 
 global.actionsAvailable = [
     {
-        title: "Compost Leftovers for a Week",
+        title: "Compost for a Week",
         description: "Compost any leftover foodscraps at each meal for one week",
         pts: "40",
         image: 'compost',

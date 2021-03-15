@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 
 import FeedItem from '../../Components/FeedItem';

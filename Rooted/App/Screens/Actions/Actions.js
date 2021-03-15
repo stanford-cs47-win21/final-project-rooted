@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     customButton: {
-        width: 190,
+        width: 175,
         height: 60,
         borderRadius: 20,
         backgroundColor: Colors.darkGreen,
