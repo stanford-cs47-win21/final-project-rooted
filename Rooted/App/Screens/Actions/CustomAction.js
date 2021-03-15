@@ -7,7 +7,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function CustomAction( {navigation} ) {
-    const [selectedLanguage, setSelectedLanguage] = useState('Medium');
+    const [selectedLanguage, setSelectedLanguage] = useState('1');
     const [imageAdded, setImageAdded]=  useState(false);
     const [description, setDescription] = useState('');
     const [title, setTitle] = useState('');
@@ -42,9 +42,9 @@ export default function CustomAction( {navigation} ) {
                             setSelectedLanguage(itemValue)
                         }
                         style={styles.picker}>
-                        <Picker.Item label="Easy" value="Easy" />
-                        <Picker.Item label="Medium" value="Medium" />
-                        <Picker.Item label="Difficult" value="Difficult" />
+                        <Picker.Item label="Easy" value="0" />
+                        <Picker.Item label="Medium" value="1" />
+                        <Picker.Item label="Difficult" value="2" />
                     </Picker>
                 </View>
                 <TouchableOpacity style={styles.photo} onPress={()=>{
@@ -57,16 +57,13 @@ export default function CustomAction( {navigation} ) {
             <TouchableOpacity onPress={() => {
                                 if (description !== '' && imageAdded && title !== '') {
                                     console.log("Pressed");
-                                    var postInfo = {
-                                        profile : 'Clara MacAvoy',
-                                        challenge : selectedLanguage,
-                                        timePosted : 'now',
-                                        description : description,
+                                    var actionInfo = {
+                                        actionTitle : title,
+                                        difficulty : parseInt(selectedLanguage),
+                                        actionDescription : description,
                                         image : 'recycle',
-                                        likes : 0,
-                                        comments : []
                                     }
-                                    navigation.navigate('Point Calibrator', postInfo);
+                                    navigation.navigate('Point Calibrator', actionInfo);
                                 } else if (description === '') {
                                     Alert.alert('Please add a description')
                                 } else if (title === ''){
