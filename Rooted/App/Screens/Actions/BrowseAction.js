@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        height: Metrics.screenHeight*.72
     },
     title: {
         justifyContent: 'space-between',

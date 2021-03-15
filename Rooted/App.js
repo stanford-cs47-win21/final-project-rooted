@@ -44,34 +44,58 @@ global.actionsInProgress = [
 
 global.actionsAvailable = [
     {
-        title: "Recycle Three Times",
-        description: "Recycle items (boxes, plastic, etc.) three times to complete this action",
-        pts: "80",
-        image: 'recycle',
-    }, 
-    {
-        title: "Vegetarian For a Week",
-        description: "Eat vegetarian food for a full week",
-        pts: "100",
-        image: 'greenDream',
-    }, 
-    {
-        title: "Reuseable Water Bottles for a Week",
-        description: "Don't use any single use plastic water bottles all week",
+        title: "Compost Leftovers for a Week",
+        description: "Compost any leftover foodscraps at each meal for one week",
         pts: "40",
-        image: 'waterbottle',
+        image: 'compost',
     }, 
     {
-        title: "Bike to Work",
-        description: "Replace your commute with a bike ride",
-        pts: "20",
-        image: 'bike',
+        title: "Vegan For a Week",
+        description: "Eat vegan food (no animal products of any kind) for a full week",
+        pts: "150",
+        image: 'vegan',
     }, 
     {
-        title: "Beach Clean-up Day",
-        description: "Volunteer at a local beach clean up for at least 4 hours",
+        title: "Go a week using public transportation",
+        description: "Use public transportation, walking or biking to travel for a week",
+        pts: "80",
+        image: 'bus',
+    }, 
+    {
+        title: "Buy from a sustainable shopping brand",
+        description: "Puchase a clothing item from a sustainable brand rather than fast fashion",
+        pts: "10",
+        image: 'fashion',
+    }, 
+    {
+        title: "Reduce your Electricity Bill by 5%",
+        description: "Reduce your electricity usage by at least 5% over the month",
+        pts: "200",
+        image: 'electricity',
+    }, 
+    {
+        title: "Attend a Local Tree Planting",
+        description: "Attend a local tree planting event",
         pts: "50",
-        image: 'beach',
+        image: 'treePlanting',
+    }, 
+    {
+        title: "Clean a Park",
+        description: "Spend at least 2 hours at a local park / public location clean up",
+        pts: "25",
+        image: 'park',
+    }, 
+    {
+        title: "Go to a Farmers Market",
+        description: "Shop for produce at your local farmers market at least once",
+        pts: "15",
+        image: 'market',
+    }, 
+    {
+        title: "Buy in Bulk",
+        description: "Buy bulk groceries to reduce single use plastic",
+        pts: "15",
+        image: 'bulk',
     }
 ]
 
