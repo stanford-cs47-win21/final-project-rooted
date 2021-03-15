@@ -8,7 +8,16 @@ import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-
+// /* Onboarding */
+// import { OnboardingScreen } from '../Screens/Onboarding';
+// const OnboardingStack = createStackNavigator();
+// function OnboardingStackComponent() {
+//     return (
+//         <OnboardingStack.Navigator headerMode="float">
+//             <OnboardingStack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+//         </OnboardingStack.Navigator>
+//     );
+// }
 
 /* Feed */
 import { Feed } from '../Screens/Feed';
@@ -56,10 +65,10 @@ function DashboardStackComponent() {
 }
 
 /* Profile */
-import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview } from '../Screens/Profile';
+import { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, ReformationPreview } from '../Screens/Profile';
 
 const ProfileStack = createStackNavigator();
-function ProfileStackComponent({ navigation }) {
+function ProfileStackComponent() {
     return (
         <ProfileStack.Navigator headerMode="float">
             <ProfileStack.Screen name="Profile" component={ProfileScreen} />
@@ -68,7 +77,7 @@ function ProfileStackComponent({ navigation }) {
             <ProfileStack.Screen name="CongratsWon" component={CongratsWon} />
             <ProfileStack.Screen name="CongratsBalance" component={CongratsBalance} />
             <ProfileStack.Screen name="Stores" component={Stores} />
-            <ProfileStack.Screen name="localiPreview" component={localiPreview} options={{ animationEnabled: false, }} />
+            <ProfileStack.Screen name="ReformationPreview" component={ReformationPreview} options={{ animationEnabled: false, }} />
         </ProfileStack.Navigator>
     );
 }
@@ -87,7 +96,8 @@ const MyTheme = {
 export default function AppNavigation() {
     return (
         <NavigationContainer theme={MyTheme}>
-            <TabNav.Navigator
+            <TabNav.Navigator 
+            initialRouteName="Actions"
             screenOptions={({ route }) => ({
                  tabBarIcon: ({ focused, color, size }) => {
                      let iconName;

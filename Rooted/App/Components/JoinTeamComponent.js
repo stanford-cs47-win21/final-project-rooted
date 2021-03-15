@@ -2,8 +2,6 @@ import React from 'react';
 import { Colors, Metrics, Images } from '../Themes';
 import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 
-// title, subline, image
-
 export default function JoinTeamComponent(props) {
     return (
         <View style={styles.container}>

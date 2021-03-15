@@ -1,7 +1,5 @@
 import React from 'react';
-import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, FlatList, TouchableOpacity } from 'react-native';
-import { AntDesign, Entypo } from '@expo/vector-icons';
+import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 
 import FeedItem from '../../Components/FeedItem';
 

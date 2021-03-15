@@ -1,6 +1,6 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
 export default function Stores({ navigation }) {
@@ -10,13 +10,35 @@ export default function Stores({ navigation }) {
                 <Text style={styles.descrip}>Cash in your balance for gift cards at our favorite sustainable shops</Text>
             </View>
 
-            <TouchableOpacity onPress={() => navigation.navigate('localiPreview')}>
+            
+            <View style={styles.storeView}>
+                <Image source={Images.locali2} style={styles.storeImage}></Image>
+                <View style={styles.storeDescripView}>
+                    <Text style={styles.storeTitle}>loCali</Text>
+                    <View style={styles.storeDescripTextView}>
+                        <Text style={styles.storeDescripText}>California vegetarian</Text>
+                    </View>
+                    <View style={styles.locationTextView}>
+                        <View style={styles.locationLine}>
+                            <Text style={styles.locationText}>In store</Text>
+                            <AntDesign name="check" size={10} color={Colors.grassGreen} />
+                        </View>
+                        <View style={styles.locationLine}>
+                            <Text style={styles.locationText}>Online</Text>
+                            <AntDesign name="check" size={10} color={Colors.grassGreen} />
+                        </View>
+                    </View>
+                </View>
+            </View>
+            
+            
+            <TouchableOpacity onPress={() => navigation.navigate('ReformationPreview')}>
                 <View style={styles.storeView}>
-                    <Image source={Images.locali2} style={styles.storeImage}></Image>
+                    <Image source={Images.reformation} style={styles.storeImage}></Image>
                     <View style={styles.storeDescripView}>
-                        <Text style={styles.storeTitle}>loCali</Text>
+                        <Text style={styles.storeTitle}>Ref</Text>
                         <View style={styles.storeDescripTextView}>
-                            <Text style={styles.storeDescripText}>California vegetarian</Text>
+                            <Text style={styles.storeDescripText}>Sustainable fashion</Text>
                         </View>
                         <View style={styles.locationTextView}>
                             <View style={styles.locationLine}>
@@ -32,13 +54,12 @@ export default function Stores({ navigation }) {
                 </View>
             </TouchableOpacity>
             
-
             <View style={styles.storeView}>
-                <Image source={Images.cycles2} style={styles.storeImage}></Image>
+                <Image source={Images.ecoroots} style={styles.storeImage}></Image>
                 <View style={styles.storeDescripView}>
-                    <Text style={styles.storeTitle}>Cycles</Text>
+                    <Text style={styles.storeTitle}>Eco Roots</Text>
                     <View style={styles.storeDescripTextView}>
-                        <Text style={styles.storeDescripText}>Handmade and upcycled</Text>
+                        <Text style={styles.storeDescripText}>Plastic-free everyday-use products</Text>
                     </View>
                     <View style={styles.locationTextView}>
                         <View style={styles.locationLine}>
@@ -48,26 +69,6 @@ export default function Stores({ navigation }) {
                         <View style={styles.locationLine}>
                             <Text style={styles.locationText}>Online</Text>
                             <AntDesign name="check" size={10} color={Colors.grassGreen} />
-                        </View>
-                    </View>
-                </View>
-            </View>
-
-            <View style={styles.storeView}>
-                <Image source={Images.greenDream} style={styles.storeImage}></Image>
-                <View style={styles.storeDescripView}>
-                    <Text style={styles.storeTitle}>Green Dream</Text>
-                    <View style={styles.storeDescripTextView}>
-                        <Text style={styles.storeDescripText}>Freshly squeezed</Text>
-                    </View>
-                    <View style={styles.locationTextView}>
-                        <View style={styles.locationLine}>
-                            <Text style={styles.locationText}>In store</Text>
-                            <AntDesign name="check" size={10} color={Colors.grassGreen} />
-                        </View>
-                        <View style={styles.locationLine}>
-                            <Text style={styles.locationText}>Online</Text>
-                            <Entypo name="cross" size={10} color="red" />
                         </View>
                     </View>
                 </View>
@@ -104,6 +105,8 @@ const styles = StyleSheet.create({
     storeImage: {
         width: 140.14,
         height: 140.14,
+        resizeMode: 'contain',
+        backgroundColor: 'white',
         borderRadius: 14.01,
         marginLeft: 10,
     },

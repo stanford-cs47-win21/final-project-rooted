@@ -4,6 +4,6 @@ import WalletLocali from './WalletLocali';
 import CongratsWon from './CongratsWon';
 import CongratsBalance from './CongratsBalance';
 import Stores from './Stores';
-import localiPreview from './localiPreview';
+import ReformationPreview from './ReformationPreview';
 
-export { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, localiPreview }
+export { ProfileScreen, WalletOverview, WalletLocali, CongratsWon, CongratsBalance, Stores, ReformationPreview }

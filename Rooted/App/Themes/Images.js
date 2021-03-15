@@ -49,7 +49,15 @@ const Images = {
     waterbottle: require('../Images/waterbottle.jpg'),
     groceries: require('../Images/groceries.png'),
     sort: require('../Images/sort.png'),
-    led: require('../Images/led.jpg')
+    led: require('../Images/led.jpg'),
+    welcome1: require('../Images/welcome1.png'),
+    welcome2: require('../Images/welcome2.png'),
+    welcome3: require('../Images/welcome3.png'),
+    welcome4: require('../Images/welcome4.png'),
+    welcome5: require('../Images/welcome5.png'),
+    reformation: require('../Images/reformation.png'),
+    ecoroots: require('../Images/ecoroots.jpeg'),
+    salad: require('../Images/salad.png'),
 }
 
 export default Images

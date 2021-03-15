@@ -4,7 +4,7 @@ import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, Touchable
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
 
-export default function localiPreview({ navigation }) {
+export default function ReformationPreview() {
     const [balance, setBalance] = useState(1.47);
 
     const minusBalance = () => {
@@ -42,13 +42,13 @@ export default function localiPreview({ navigation }) {
                 <ImageBackground source={Images.blurBackground} resizeMode= 'contain' style={ [ styles.backgroundBlurView, { height: Metrics.screenHeight * 0.65, width: Metrics.screenWidth } ]}>
                     <View style={styles.localiCardView}>
 
-                        <Image source={Images.locali3} style={styles.localiImage}></Image>
+                        <Image source={Images.reformation} style={styles.localiImage}></Image>
 
-                        <Text style={{ fontSize: 30, fontWeight: 'bold'}}>loCALI</Text>
+                        <Text style={{ fontSize: 30, fontWeight: 'bold'}}>Ref</Text>
 
                         <View style={styles.middleDescrip}>
                             <View style={styles.middleDescripTextView}>
-                                <Text style={styles.middleDescripText}>Fast casual vegetarian with locally grown produce</Text>
+                                <Text style={styles.middleDescripText}>Bringing sustainable fashion to everyone.</Text>
                             </View>
                             <View style={styles.locationTextView}>
                                 <View style={styles.locationLine}>

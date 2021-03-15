@@ -1,7 +1,6 @@
 import React from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity, Touchable } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
 
 export default function WalletOverview({ navigation }) {
     return (
@@ -14,20 +13,42 @@ export default function WalletOverview({ navigation }) {
                         </View>
                         <Image source={Images.locali} style={styles.giftcards}></Image>
                     </View>
-                    <View style={styles.hotItemSection}>
+
+                    <View style={styles.hotHeader}>
                         <Text style={styles.header2}>Hot Items</Text>
-                        <View style={styles.hotItemListing}>
-                                <Image source={Images.burger} style={{ width: 120, height: 120}}></Image>
-                                <View style={styles.itemDetails}>
-                                    <Text style={{ fontSize: 18 }}>Meatless Burger</Text>
-                                    <Image source={Images.stars} style={{ width: 80, height: 20, resizeMode: 'contain' }}></Image>
-                                    <Text>$6.99</Text>
-                                    <View style={styles.orderButton}>
-                                        <Text>Order Now</Text>
-                                    </View>
-                                </View>
-                        </View>
                     </View>
+                    
+                    <ScrollView horizontal={true}>
+                        <View style={styles.hotItemSection}>
+                            
+                            
+                            <View style={styles.hotItemListing}>
+                                    <Image source={Images.burger} style={{ width: 120, height: 120}}></Image>
+                                    <View style={styles.itemDetails}>
+                                        <Text style={{ fontSize: 18 }}>Meatless Burger</Text>
+                                        <Image source={Images.stars} style={{ width: 80, height: 20, resizeMode: 'contain' }}></Image>
+                                        <Text>$6.99</Text>
+                                        <View style={styles.orderButton}>
+                                            <Text>Order Now</Text>
+                                        </View>
+                                    </View>
+                            </View>
+
+                            <View style={styles.hotItemListing}>
+                                    <Image source={Images.salad} style={{ width: 120, height: 120, resizeMode: 'contain'}}></Image>
+                                    <View style={styles.itemDetails}>
+                                        <Text style={{ fontSize: 18 }}>Mixed Greens</Text>
+                                        <Image source={Images.stars} style={{ width: 80, height: 20, resizeMode: 'contain' }}></Image>
+                                        <Text>$7.49</Text>
+                                        <View style={styles.orderButton}>
+                                            <Text>Order Now</Text>
+                                        </View>
+                                    </View>
+                            </View>
+
+                        </View>
+                    </ScrollView>
+                    
                     <View style={styles.wallet}>
                         <Image source={Images.cycles} style={styles.giftcards}></Image>
                     </View>
@@ -63,9 +84,13 @@ const styles = StyleSheet.create({
     },
     wallet: {
         width: Metrics.screenWidth * 0.9,
-        height: 300,
+        height: 320,
         alignItems: 'center',
-        justifyContent: 'space-between',
+    },
+    hotHeader: {
+        marginTop: 20,
+        width: Metrics.screenWidth * 0.9,
+        marginBottom: 5,
     },
     giftcards: {
         width: Metrics.screenWidth * 0.9,
@@ -77,6 +102,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 200,
         width: Metrics.screenWidth,
+        marginBottom: 20,
     },
     balance: {
         fontSize: 50,
@@ -97,10 +123,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     hotItemSection: {
-        height: 150,
-        width: Metrics.screenWidth * 0.9,
-        marginTop: 30,
-        marginBottom: 10,
+        height: 130,
+        width: 650,
+        marginLeft: 20,
+        flexDirection: 'row',
     },
     header2: {
         fontSize: 20,
@@ -110,8 +136,7 @@ const styles = StyleSheet.create({
     hotItemListing: {
         flexDirection: 'row',
         height: 120,
-        width: Metrics.screenWidth * 0.9,
-        backgroundColor: 'white',
+        width: 320,
     },
     itemDetails: {
         justifyContent: 'space-evenly',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
 
 import JoinTeamComponent from '../../Components/JoinTeamComponent';
 
