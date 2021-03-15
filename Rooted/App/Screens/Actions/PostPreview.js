@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import FeedItemPreview from '../../Components/FeedItemPreview';
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
-
+import MapView from 'react-native-maps';
 
 
 export default function ReformationPreview() {
@@ -36,16 +36,16 @@ export default function ReformationPreview() {
 
     return (
         <View style={styles.container}>
-            <View style={styles.descripView}>
-                <Text style={styles.descrip}>Cash in your balance for gift cards at our favorite sustainable shops</Text>
-            </View>
             <View style={styles.backgroundView}>
-                <ImageBackground source={Images.blurBackground} resizeMode= 'contain' style={ [ styles.backgroundBlurView, { height: Metrics.screenHeight * 0.65, width: Metrics.screenWidth } ]}>
+                {/* <ImageBackground source={Images.blurBackground} resizeMode= 'contain' style={ [ styles.backgroundBlurView, { height: Metrics.screenHeight * 0.65, width: Metrics.screenWidth } ]}> */}
                     <View style={styles.localiCardView}>
 
                         <Image source={Images.reformation} style={styles.localiImage}></Image>
 
                         <Text style={{ fontSize: 30, fontWeight: 'bold'}}>Ref</Text>
+
+                        
+                        
 
                         <View style={styles.middleDescrip}>
                             <View style={styles.middleDescripTextView}>
@@ -61,6 +61,17 @@ export default function ReformationPreview() {
                                     <AntDesign name="check" size={10} color={Colors.grassGreen} />
                                 </View>
                             </View>
+                        </View>
+
+                        <View style={styles.mapContainer}>
+                            <MapView style={styles.map}
+                                initialRegion={{
+                                latitude: 34.083507,
+                                longitude: -118.363907,
+                                latitudeDelta: 0.0003,
+                                longitudeDelta: 0.0002,
+                                }}
+                            />
                         </View>
 
                         <View style={styles.buttonView}>
@@ -89,7 +100,7 @@ export default function ReformationPreview() {
                         </View>
 
                     </View>
-                </ImageBackground>
+                {/* </ImageBackground> */}
             </View>
             
         </View>
@@ -100,12 +111,24 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
     },
+    mapContainer: {
+        width: 287,
+        height: 150,
+        borderRadius: 15,
+        marginBottom: 5,
+    },
+    map: {
+        width: 287,
+        height: 150,
+        borderRadius: 15,
+        marginBottom: 5,
+    },
     descripView: {
         height: 40,
         width: Metrics.screenWidth * 0.9,
         flexDirection: 'row',
         marginTop: 30,
-        marginBottom: 10,
+        marginBottom: 5,
     },
     descrip: {
         fontSize: 15,
@@ -124,7 +147,7 @@ const styles = StyleSheet.create({
     },
     localiCardView: {
         width: 320,
-        height: 470,
+        height: 610,
         borderRadius: 15,
         backgroundColor: Colors.lightBlue,
         alignItems: 'center',
@@ -141,7 +164,7 @@ const styles = StyleSheet.create({
         height: 40,
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        margin: 10,
+        margin: 5,
     },
     middleDescripTextView: {
         height: 38,

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
 
 export default function PointCalibrator( {route, navigation} ) {

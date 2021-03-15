@@ -1,11 +1,10 @@
 /* This file contains the app's navigation */
 
 import React from 'react';
-import { Colors, Metrics } from '../Themes';
+import { Colors } from '../Themes';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
-import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 // /* Onboarding */
