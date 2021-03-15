@@ -6,6 +6,10 @@ import FeedItem from '../../Components/FeedItem';
 
 
 export default function Feed() {
+    const [updatingVar, setUpdatingVar] = useState(0);
+    global.updateFeed = () => {
+        setUpdatingVar(updatingVar+1);
+    }
     return (
         <SafeAreaView style={styles.container}>
 

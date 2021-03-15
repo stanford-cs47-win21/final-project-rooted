@@ -22,7 +22,7 @@ export default function BrowseAction( {navigation} ) {
                                     <Image source={Images[action.image]} style={styles.taskPhoto}></Image>
                                     <View style={styles.bodyTextView}>
                                         <Text style={styles.titleText}>{action.title}</Text>
-                                        <Text style={styles.ptsText}>{action.pts}</Text>
+                                        <Text style={styles.ptsText}>{action.pts + " points"}</Text>
                                     </View>
                                     <AntDesign name="pluscircleo" size={34} color="black" style={{marginLeft: 20}}/>
                                 </View>

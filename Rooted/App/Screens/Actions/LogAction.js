@@ -18,7 +18,7 @@ export default function LogAction( {route, navigation} ) {
                     <Text style={{ fontSize: 32, textAlign: 'center' }}>{action.title}</Text>
                 </View>
                 <View style={styles.title}>
-                    <Text style={{ fontSize: 24, textAlign: 'center', color: Colors.grassGreen }}>{action.pts}</Text>
+                    <Text style={{ fontSize: 24, textAlign: 'center', color: Colors.grassGreen }}>{action.pts + " points"}</Text>
                 </View>
                 <View style={styles.title}>
                     <Text style={{ fontSize: 18, fontStyle: 'italic', textAlign: 'center' }}>{action.description}</Text>
@@ -57,15 +57,17 @@ export default function LogAction( {route, navigation} ) {
                                 if (description !== '' && imageAdded) {
                                     console.log("Pressed");
                                     var postInfo = {
-                                        profile : 'Clara MacAvoy',
+                                        name : 'Clara MacAvoy',
+                                        profilePic : 'Clara',
                                         challenge : selectedLanguage,
                                         timePosted : 'now',
-                                        title : action.title,
-                                        description : description,
-                                        pts : action.pts,
+                                        caption : description,
+                                        points : action.pts.toString(),
                                         image : 'recycle',
                                         likes : 0,
-                                        comments : []
+                                        comments : 0,
+                                        liked : false,
+                                        index : action.index
                                     }
                                     navigation.navigate('Post Preview', postInfo);
                                 } else if (description === '') {

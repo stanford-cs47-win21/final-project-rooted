@@ -2,14 +2,16 @@ import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
 import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import FeedItemPreview from '../../Components/FeedItemPreview';
+
 
 
 export default function CustomAction( {route, navigation} ) {
     var action = route.params;
     const [selectedLanguage, setSelectedLanguage] = useState('Public');
     return (
-        <View>
-            <View><Text>{action.title}</Text></View>
+        <View style={styles.container}>
+            <View>{FeedItemPreview(action)}</View>
             <View style={styles.challengePick}>
                     <View style={styles.post}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: "right"}}>Post to:</Text></View>
@@ -26,7 +28,12 @@ export default function CustomAction( {route, navigation} ) {
             <View style={styles.customButtonBox}>
                 <Text style={{fontSize: 15}}>Is this action ready to post?</Text>
                 <TouchableOpacity onPress={() => {
-                                global.actionsCompleted.push(action)
+                                action.id = global.actionsCompleted.length + 1;
+                                global.actionsCompleted.unshift(action);
+                                global.updateFeed();
+                                global.actionsInProgress.splice(action.index, 1);
+                                global.updateActionCenter();
+                                navigation.popToTop();
                                 navigation.navigate('Feed')
                                 
                 }}>
@@ -137,10 +144,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     picker : {
-        marginTop: -20,
+        marginTop: -60,
         width : Metrics.screenWidth * .5,
         marginRight: 100,
-        marginBottom: -20
+        marginBottom: -60
     },
     post : {
         width : Metrics.screenWidth * .4,
