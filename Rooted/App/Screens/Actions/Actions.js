@@ -64,7 +64,6 @@ export default function Action( {navigation} ) {
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                                console.log("Pressed");
                                 global.activitiesList = ["Hello!"];
                     navigation.navigate('Browse Actions');
                 }}>

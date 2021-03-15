@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { StyleSheet, Image, Text, View, TouchableOpacity, Alert } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import { TextInput } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
@@ -13,6 +12,10 @@ export default function CustomAction( {navigation} ) {
     const [title, setTitle] = useState('');
     return (
         <View style={styles.container}>
+            <View style={styles.headerContainer}>
+                <Text style={{fontSize: 25, fontWeight: 'bold', textAlign: 'left', marginTop: 10}}>Create Custom Action</Text>
+            </View>
+
             <View style={styles.infoContainer}>
                 <View style={styles.title}>
                     <TextInput
@@ -35,13 +38,14 @@ export default function CustomAction( {navigation} ) {
                     </TextInput>
                 </View>
                 <View style={styles.challengePick}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold'}}>Estimated Difficulty:</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold'}}>Estimated Difficulty</Text>
                     <Picker
                         selectedValue={selectedLanguage}
                         onValueChange={(itemValue, itemIndex) =>
                             setSelectedLanguage(itemValue)
                         }
-                        style={styles.picker}>
+                        style={styles.picker}
+                        itemStyle={{height: 100}}>
                         <Picker.Item label="Easy" value="0" />
                         <Picker.Item label="Medium" value="1" />
                         <Picker.Item label="Difficult" value="2" />
@@ -50,11 +54,10 @@ export default function CustomAction( {navigation} ) {
                 <TouchableOpacity style={styles.photo} onPress={()=>{
                     setImageAdded(true);
                 }}>
-                    {imageAdded ? <Image source={Images['recycle']} style={styles.photo}></Image>
+                    {imageAdded ? <Image source={Images['recycle']} style={[styles.photo, {borderWidth: 0} ]}></Image>
                     : <MaterialCommunityIcons name="camera-plus-outline" size={110} color="black" />}
                 </TouchableOpacity>
-            </View>
-            <TouchableOpacity onPress={() => {
+                <TouchableOpacity onPress={() => {
                                 if (description !== '' && imageAdded && title !== '') {
                                     console.log("Pressed");
                                     var actionInfo = {
@@ -77,6 +80,8 @@ export default function CustomAction( {navigation} ) {
                         <Text style={styles.customButtonText}>CALIBRATE POINTS</Text>
                     </View>
             </TouchableOpacity>
+            </View>
+            
         </View>
     );
 }
@@ -87,6 +92,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
+    headerContainer: {
+        width: Metrics.screenWidth* 0.9,
+    },
     infoContainer : {
         height : Metrics.screenHeight * .72,
         justifyContent: 'flex-start',
@@ -96,58 +104,69 @@ const styles = StyleSheet.create({
         height: Metrics.screenHeight * .05,
         alignContent: "center",
         justifyContent: 'center',   
-        margin: 10
+        margin: 10,
+        width: Metrics.screenWidth * 0.9,
     },
     description : {
         height: Metrics.screenHeight * .1,
         alignContent: "center",
         justifyContent: 'center',   
-        margin: 10
+        margin: 20
+    },
+    
+    titleInput : {
+        backgroundColor: Colors.lightGrey,
+        height: Metrics.screenHeight * .05,
+        width: Metrics.screenWidth  * .9,
+        borderRadius: 15,
+        borderLeftWidth: 10,
+        borderTopWidth: 5,
+        borderRightWidth: 10,
+        borderColor: Colors.lightGrey,
+        fontSize: 20,
+        marginTop: 20,
     },
     descriptionInput : {
         backgroundColor: Colors.lightGrey,
         height: Metrics.screenHeight * .1,
-        width: Metrics.screenWidth  * .85,
-        borderRadius: 20,
+        width: Metrics.screenWidth  * .9,
+        borderRadius: 15,
         borderLeftWidth: 10,
         borderTopWidth: 5,
         borderRightWidth: 10,
         borderColor: Colors.lightGrey,
         fontSize: 16
     },
-    titleInput : {
-        backgroundColor: Colors.lightGrey,
-        height: Metrics.screenHeight * .05,
-        width: Metrics.screenWidth  * .85,
-        borderRadius: 20,
-        borderLeftWidth: 10,
-        borderTopWidth: 5,
-        borderRightWidth: 10,
-        borderColor: Colors.lightGrey,
-        fontSize: 24
+    picker : {
+        marginTop: 10,
     },
-    customButtonBox: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
+    challengePick : {
+        marginTop: 20,
+    },
+    photo : {
+        height: 175,
+        width: 175,
+        borderWidth: 1,
+        borderColor: Colors.mediumGrey,
+        borderRadius: 15,
+        justifyContent: 'center',
         alignItems: 'center',
     },
     customButton: {
-        width: 290,
-        height: 60,
-        borderRadius: 20,
+        width: 250,
+        height: 50,
+        borderRadius: 125,
         backgroundColor: Colors.darkGreen,
-        margin: 0,
-        marginTop: 10,
+        marginTop: 25,
         justifyContent: 'center',
         alignItems: 'center',
     },
     customButtonDisabled: {
-        width: 290,
-        height: 60,
-        borderRadius: 20,
+        width: 250,
+        height: 50,
+        borderRadius: 125,
         backgroundColor: Colors.lightGrey,
-        margin: 0,
-        marginTop: 10,
+        marginTop: 25,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -156,21 +175,4 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center'
     },
-    photo : {
-        height: 175,
-        width: 175,
-        borderWidth: 4,
-        borderColor: Colors.darkGrey,
-        borderRadius: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 10
-    },
-    picker : {
-        marginTop: -20,
-        marginBottom: -20
-    },
-    challengePick : {
-        marginTop: 10
-    }
 })
