@@ -77,26 +77,29 @@ global.actionsAvailable = [
 
 global.actionsCompleted = [
     {
-        profile : '',
-        challenge : '',
-        timePosted : '',
-        title : '',
-        description : '',
-        pts : '',
-        image : '',
-        likes : '',
-        comments : []
+        name: 'Clara MacAvoy',
+        profilePic: 'Clara',
+        id: '1',
+        challenge: 'Stanford Eco Week',
+        timePosted: 'now',
+        caption: 'Thought more about where my waste goes this week!',
+        points: '30',
+        image: 'groceries',
+        likes: '24',
+        comments: '23',
+    },
+    {
+        name: 'Nicole Woo',
+        profilePic: 'Nicole',
+        id: '2',
+        challenge: 'Trash Marathon',
+        timePosted: '1 hr',
+        caption: 'Sorting my trash is so easy I could do it in my sleep',
+        points: '30',
+        image: 'groceries',
+        likes: '24',
+        comments: '23',
     }
 ]
-
-// To test out screens, import the screen.js file from the Screens folder and paste it into the return function for App()
-
-//import ProfileScreen from './App/Screens/ProfileScreen';
-
-// export default function App() {
-//     return (
-//         <ProfileScreen></ProfileScreen>
-//     );
-// }
 
 export default AppNavigation;
