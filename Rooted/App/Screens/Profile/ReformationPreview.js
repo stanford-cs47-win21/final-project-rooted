@@ -4,6 +4,7 @@ import { StyleSheet, Image, Text, SafeAreaView, View, ImageBackground, Touchable
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
 
+
 export default function ReformationPreview() {
     const [balance, setBalance] = useState(1.47);
 
