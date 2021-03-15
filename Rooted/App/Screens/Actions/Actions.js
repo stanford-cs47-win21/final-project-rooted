@@ -143,10 +143,10 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     bodyTextView: {
-        width: 200,
+        width: 250,
     },
     titleText: {
-        fontSize: 18,
+        fontSize: 15,
     },
     ptsText: {
         fontSize: 12,
