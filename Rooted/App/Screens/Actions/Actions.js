@@ -38,13 +38,14 @@ export default function Action( {navigation} ) {
                     <View style={styles.tasks}>
                         {global.actionsInProgress.map( (action, index) => (
                         <TouchableOpacity key={index} onPress={() => {
+                            action.index = index;
                             navigation.navigate('Complete an Action', action);
                         }}>
                             <View style={styles.taskView}>
                                 <Image source={Images[action.image]} style={styles.taskPhoto}></Image>
                                 <View style={styles.bodyTextView}>
                                     <Text style={styles.titleText}>{action.title}</Text>
-                                    <Text style={styles.ptsText}>{action.pts}</Text>
+                                    <Text style={styles.ptsText}>{action.pts + " points"}</Text>
                                 </View>
                             </View>
                         </TouchableOpacity>
