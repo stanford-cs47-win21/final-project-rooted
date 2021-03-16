@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Colors, Metrics, Images } from '../../Themes';
+import { Colors, Metrics } from '../../Themes';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import FeedItemPreview from '../../Components/FeedItemPreview';
@@ -8,7 +8,7 @@ import FeedItemPreview from '../../Components/FeedItemPreview';
 
 export default function CustomAction( {route, navigation} ) {
     var action = route.params;
-    const [selectedLanguage, setSelectedLanguage] = useState('Public');
+    const [selectedPrivacy, setSelectedPrivacy] = useState('Public');
     return (
         <View style={styles.container}>
             <View>{FeedItemPreview(action)}</View>
@@ -16,9 +16,9 @@ export default function CustomAction( {route, navigation} ) {
                     <View style={styles.post}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: "right"}}>Post to</Text></View>
                     <Picker
-                        selectedValue={selectedLanguage}
+                        selectedValue={selectedPrivacy}
                         onValueChange={(itemValue, itemIndex) =>
-                            setSelectedLanguage(itemValue)
+                            setSelectedPrivacy(itemValue)
                         }
                         style={styles.picker}
                         itemStyle={{height: 80}}>

@@ -6,7 +6,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function CustomAction( {navigation} ) {
-    const [selectedLanguage, setSelectedLanguage] = useState('1');
+    const [selectedDifficuly, setSelectedDifficulty] = useState('1');
     const [imageAdded, setImageAdded]=  useState(false);
     const [description, setDescription] = useState('');
     const [title, setTitle] = useState('');
@@ -40,9 +40,9 @@ export default function CustomAction( {navigation} ) {
                 <View style={styles.challengePick}>
                     <Text style={{ fontSize: 18, fontWeight: 'bold'}}>Estimated Difficulty</Text>
                     <Picker
-                        selectedValue={selectedLanguage}
+                        selectedValue={selectedDifficuly}
                         onValueChange={(itemValue, itemIndex) =>
-                            setSelectedLanguage(itemValue)
+                            setSelectedDifficulty(itemValue)
                         }
                         style={styles.picker}
                         itemStyle={{height: 100}}>
@@ -62,7 +62,7 @@ export default function CustomAction( {navigation} ) {
                                     console.log("Pressed");
                                     var actionInfo = {
                                         actionTitle : title,
-                                        difficulty : parseInt(selectedLanguage),
+                                        difficulty : parseInt(selectedDifficuly),
                                         actionDescription : description,
                                         image : 'recycle',
                                     }

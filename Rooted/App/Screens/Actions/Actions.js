@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 
 export default function Action( {navigation} ) {
     const [varRan, setVarRan] = useState(0);
@@ -8,23 +8,22 @@ export default function Action( {navigation} ) {
         setVarRan(varRan+1);
     }
     return (
-            
         <View style={styles.container}>
             <View style={styles.pointsToLead}>
                 <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Points to Take the Lead</Text>
             </View>
-            <View style={styles.percentageView}>
-                <View style={styles.percentageCard} >
+            <View style={styles.challengeProgressView}>
+                <View style={styles.challengeProgressCard} >
                     <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.mediumBlue }}>Stanford Eco Week</Text>
                     <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.mediumBlue}}>273</Text>
                     <Text style={{ textAlign: 'center', color: Colors.mediumBlue }}>points</Text>
                 </View>
-                <View style={styles.percentageCard}>
+                <View style={styles.challengeProgressCard}>
                     <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.grassGreen }}>Energy Marathon</Text>
                     <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.grassGreen}}>50</Text>
                     <Text style={{ textAlign: 'center', color: Colors.grassGreen }}>points</Text>
                 </View>
-                <View style={styles.percentageCard}>
+                <View style={styles.challengeProgressCard}>
                     <Text style={{ textAlign: 'center', fontWeight: 'bold', color: Colors.darkGreen }}>Green Revolution</Text>
                     <Text style={{ fontSize: 40, fontWeight: 'bold', color: Colors.darkGreen}}>35</Text>
                     <Text style={{ textAlign: 'center', color: Colors.darkGreen }}>points</Text>
@@ -83,14 +82,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: Metrics.screenHeight * .68
     },
-    title: {
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: 200,
-        height: 40,
-        marginTop: 25,
-        marginBottom: 10,
-    },
     pointsToLead: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
@@ -104,14 +95,14 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         width: Metrics.screenWidth * 0.9,
     },
-    percentageView: {
+    challengeProgressView: {
         height: 150,
         width: Metrics.screenWidth * 0.9,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    percentageCard: {
+    challengeProgressCard: {
         height: 120,
         width: Metrics.screenWidth * 0.8 / 3,
         backgroundColor: Colors.lightGrey,

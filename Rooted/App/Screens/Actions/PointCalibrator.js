@@ -92,30 +92,12 @@ const styles = StyleSheet.create({
         width: Metrics.screenWidth* 0.9,
         margin: 20,
     },
-    title: {
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: 200,
-        height: 40,
-        marginTop: 25,
-        marginBottom: 10,
-    },
     image: {
         height: Metrics.screenHeight * 0.2,
         width: Metrics.screenHeight * 0.2,
         marginLeft: 10,
         marginRight: 10,
         borderRadius: 5,
-    },
-    goButton: {
-        height: 25,
-        width: 25,
-        resizeMode: 'contain',
-    },
-    plusButton: {
-        height: 62,
-        resizeMode: 'contain',
-        marginBottom: 30,
     },
     progressBar : {
         margin : 30,

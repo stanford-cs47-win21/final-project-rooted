@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function LogAction( {route, navigation} ) {
     var action = route.params;
-    const [selectedLanguage, setSelectedLanguage] = useState('Energy Marathon');
+    const [selectedChallenge, setSelectedChallenge] = useState('Energy Marathon');
     const [imageAdded, setImageAdded]=  useState(false);
     const [description, setDescription] = useState('');
     return (
@@ -23,7 +23,6 @@ export default function LogAction( {route, navigation} ) {
                 } 
             ]}
             >
-
                 <View style={styles.title}>
                     <Text style={{ fontSize: 32, textAlign: 'center' }}>{action.title}</Text>
                 </View>
@@ -58,9 +57,9 @@ export default function LogAction( {route, navigation} ) {
                 <View style={styles.challengePick}>
                     <Text style={{ fontSize: 18, fontWeight: 'bold'}}>Add Points to Challenge:</Text>
                     <Picker
-                        selectedValue={selectedLanguage}
+                        selectedValue={selectedChallenge}
                         onValueChange={(itemValue, itemIndex) =>
-                            setSelectedLanguage(itemValue)
+                            setSelectedChallenge(itemValue)
                         }
                         style={styles.picker}
                         itemStyle={{ height: 105 }}>
@@ -69,15 +68,13 @@ export default function LogAction( {route, navigation} ) {
                         <Picker.Item label="Green Revolution" value="Green Revolution" />
                     </Picker>
                 </View>
-            
-
                 <TouchableOpacity onPress={() => {
                                     if (description !== '' && imageAdded) {
                                         console.log("Pressed");
                                         var postInfo = {
                                             name : 'Clara MacAvoy',
                                             profilePic : 'Clara',
-                                            challenge : selectedLanguage,
+                                            challenge : selectedChallenge,
                                             timePosted : 'now',
                                             caption : description,
                                             points : action.pts.toString(),
@@ -147,13 +144,6 @@ const styles = StyleSheet.create({
     },
     challengePick : {
         marginTop: 5
-    },
-    customButtonBox: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        height: 20,
-        backgroundColor: 'green'
     },
     customButton: {
         width: 190,

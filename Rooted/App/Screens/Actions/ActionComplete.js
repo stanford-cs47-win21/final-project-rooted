@@ -32,19 +32,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: Metrics.screenHeight*.72
     },
-    title: {
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: 200,
-        height: 40,
-        marginTop: 20,
-        marginBottom: 10,
-    },
-    customButtonBox: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-    },
     customButton: {
         width: 175,
         height: 50,

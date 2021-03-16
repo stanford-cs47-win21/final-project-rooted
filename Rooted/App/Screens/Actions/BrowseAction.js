@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Colors, Metrics, Images } from '../../Themes';
-import { StyleSheet, Image, Text, SafeAreaView, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function BrowseAction( {navigation} ) {
@@ -12,8 +12,6 @@ export default function BrowseAction( {navigation} ) {
             <View style={styles.headerContainer}>
                 <Text style={{fontSize: 25, fontWeight: 'bold', textAlign: 'left', marginTop: 10}}>Browse Actions</Text>
             </View>
-            
-
             <ScrollView>
                 <View style={styles.container}>
                     <View style={styles.tasks}>
@@ -53,14 +51,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 10,
     },
-    title: {
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: 200,
-        height: 40,
-        marginTop: 25,
-        marginBottom: 10,
-    },
     tasks: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -93,14 +83,4 @@ const styles = StyleSheet.create({
         marginRight: 10,
         borderRadius: 5
     },
-    goButton: {
-        height: 25,
-        width: 25,
-        resizeMode: 'contain',
-    },
-    plusButton: {
-        height: 62,
-        resizeMode: 'contain',
-        marginBottom: 30,
-    }
 });
