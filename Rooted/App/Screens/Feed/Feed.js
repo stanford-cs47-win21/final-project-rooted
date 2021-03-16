@@ -16,7 +16,7 @@ export default function Feed() {
             <FlatList
                 data={actionsCompleted}
                 renderItem={({ item }) => FeedItem(item)}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id.toString()}
             />
         </SafeAreaView>
     );
