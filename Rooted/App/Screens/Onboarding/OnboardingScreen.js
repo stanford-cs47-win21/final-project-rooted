@@ -10,7 +10,7 @@ export default function OnboardingScreen({ setOnboarded }) {
 
     const incremementScreen = () => {
         let newNum = parseFloat(num) + 1;
-        setNum(newNum);
+        
 
         if (newNum === 2) {
             setScreen(Images.welcome2);
@@ -23,6 +23,7 @@ export default function OnboardingScreen({ setOnboarded }) {
         } else if (newNum === 6) {
             setOnboarded(true);
         }
+        setNum(newNum);
     };
 
     return (
