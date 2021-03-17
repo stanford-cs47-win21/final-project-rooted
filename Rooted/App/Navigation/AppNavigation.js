@@ -1,22 +1,18 @@
 /* This file contains the app's navigation */
 
-import React from 'react';
-import { Colors } from '../Themes';
+import React, { useEffect, useState } from 'react';
+import { Colors, Metrics } from '../Themes';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
-import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
 import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 
-// /* Onboarding */
-// import { OnboardingScreen } from '../Screens/Onboarding';
-// const OnboardingStack = createStackNavigator();
-// function OnboardingStackComponent() {
-//     return (
-//         <OnboardingStack.Navigator headerMode="float">
-//             <OnboardingStack.Screen name="OnboardingScreen" component={OnboardingScreen} />
-//         </OnboardingStack.Navigator>
-//     );
-// }
+
+/* Onboarding Flow */
+
+import { OnboardingScreen } from '../Screens/Onboarding';
 
 /* Feed */
 import { Feed } from '../Screens/Feed';
@@ -37,7 +33,7 @@ const ActionsStack = createStackNavigator();
 function ActionsStackComponent() {
     return (
         <ActionsStack.Navigator headerMode="float">
-            <ActionsStack.Screen name="Action Center" component={Actions} />
+            <ActionsStack.Screen name="Action Center" component={Actions} options={{headerLeft: null}}  />
             <ActionsStack.Screen name="Custom Action" component={CustomAction} />
             <ActionsStack.Screen name="Browse Actions" component={BrowseAction} options={{title: null}} />
             <ActionsStack.Screen name="Complete Action" component={LogAction} options={{title: "Log Completed Action"}}  />
@@ -82,8 +78,41 @@ function ProfileStackComponent() {
     );
 }
 
-
+/* Tab Navigation Container */
 const TabNav = createBottomTabNavigator();
+function TabNavComponent() {
+    return (
+        <TabNav.Navigator 
+        initialRouteName="Actions"
+        screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+
+                    if (route.name === 'Feed') {
+                        iconName = focused ? 'list-circle' : 'list-circle-outline';
+                    } else if (route.name == 'Actions') {
+                        iconName = focused ? 'leaf' : 'leaf-outline';
+                    } else if (route.name == 'Dashboard') {
+                        iconName = focused ? 'podium' : 'podium-outline';
+                    } else if (route.name == 'Profile') {
+                        iconName = focused ? 'person' : 'person-outline';
+                    }
+            return <Ionicons style={{ marginTop: 3 }} name={iconName} size={35} color={Colors.darkGrey} />;
+                },
+            })}
+            
+        tabBarOptions={{
+            activeTintColor: 'black',
+            inactiveTintColor: Colors.darkGrey
+        }}>
+            <TabNav.Screen name="Feed" component={FeedStackComponent} />   
+            <TabNav.Screen name="Actions" component={ActionsStackComponent} /> 
+            <TabNav.Screen name="Dashboard" component={DashboardStackComponent} /> 
+            <TabNav.Screen name="Profile" component={ProfileStackComponent} />
+            
+        </TabNav.Navigator>
+    );
+}
 
 const MyTheme = {
     ...DefaultTheme,
@@ -94,37 +123,60 @@ const MyTheme = {
 };
 
 export default function AppNavigation() {
-    return (
-        <NavigationContainer theme={MyTheme}>
-            <TabNav.Navigator 
-            initialRouteName="Actions"
-            screenOptions={({ route }) => ({
-                 tabBarIcon: ({ focused, color, size }) => {
-                     let iconName;
+    const [onboarded, setOnboarded] = useState(false);
+    const [loading, setLoading] = useState(true);
+    
+    const setBool = async (bool) => {
+        try {
+            await AsyncStorage.setItem('opened', bool.toString())
+            setOnboarded(bool)
+        } catch (e) {
+            console.error(e)
+        }
+    }
 
-                     if (route.name === 'Feed') {
-                         iconName = focused ? 'list-circle' : 'list-circle-outline';
-                     } else if (route.name == 'Actions') {
-                         iconName = focused ? 'leaf' : 'leaf-outline';
-                     } else if (route.name == 'Dashboard') {
-                         iconName = focused ? 'podium' : 'podium-outline';
-                     } else if (route.name == 'Profile') {
-                         iconName = focused ? 'person' : 'person-outline';
-                     }
-                return <Ionicons style={{ marginTop: 3 }} name={iconName} size={35} color={Colors.darkGrey} />;
-                 },
-             })}
-             
-            tabBarOptions={{
-                activeTintColor: 'black',
-                inactiveTintColor: Colors.darkGrey
-            }}>
-                <TabNav.Screen name="Feed" component={FeedStackComponent} />   
-                <TabNav.Screen name="Actions" component={ActionsStackComponent} /> 
-                <TabNav.Screen name="Dashboard" component={DashboardStackComponent} /> 
-                <TabNav.Screen name="Profile" component={ProfileStackComponent} />
-                
-            </TabNav.Navigator>
-        </NavigationContainer>
-    );
+    useEffect(() => {
+        const checkBool = async () => {
+            try {
+                const appOpened = await AsyncStorage.getItem('opened');
+                console.log(appOpened);
+                if (appOpened === "true") {
+                    setOnboarded(true);
+                }
+                setLoading(false);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+        checkBool();
+    }, [])
+
+    if (loading) {
+        return (
+            <View style={styles.container}>
+                <ActivityIndicator />
+            </View>
+        )
+    }
+
+    if (!onboarded) {
+        return <OnboardingScreen setOnboarded={setBool}/>
+    } else {
+        return (
+            <NavigationContainer theme={MyTheme}>
+                <TabNavComponent />
+            </NavigationContainer>
+        )
+    }
 }
+
+
+
+const styles = StyleSheet.create({
+    container: {
+        height: 780,
+        width: Metrics.screenWidth,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+});

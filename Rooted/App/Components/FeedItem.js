@@ -29,7 +29,6 @@ export default function FeedItem(item) {
             <Image source={Images[item.image]} style={styles.image}></Image>
             <View style={styles.engagementContainer}>
                 <View style={styles.engagementItem}>
-                    {/* <AntDesign name="hearto" size={20}/> */}
                     <AntDesign name={name} size={20} color={color}/>
                     <Text style={{marginRight: 5}}>{item.likes}</Text>
                 </View>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import { Metrics, Images } from '../../Themes';
 
 import OnboardingComponent from '../../Components/OnboardingComponent';
 
-export default function OnboardingScreen({navigation}) {
+export default function OnboardingScreen({ setOnboarded }) {
     const [num, setNum] = useState(1);
     const [screen, setScreen] = useState(Images.welcome1);
 
@@ -12,23 +12,30 @@ export default function OnboardingScreen({navigation}) {
         let newNum = parseFloat(num) + 1;
         setNum(newNum);
 
-        if (num === 2) {
+        if (newNum === 2) {
             setScreen(Images.welcome2);
-        } else if (num === 3) {
+        } else if (newNum === 3) {
             setScreen(Images.welcome3);
-        } else if (num === 4) {
+        } else if (newNum === 4) {
             setScreen(Images.welcome4);
-        } else if (num === 5) {
+        } else if (newNum === 5) {
             setScreen(Images.welcome5);
-        } else if (num === 6) {
-            navigation.navigate('Actions')
+        } else if (newNum === 6) {
+            setOnboarded(true);
         }
     };
 
     return (
-        <TouchableOpacity onPress={() => incremementScreen()}>
-            <OnboardingComponent image={screen}/>
-        </TouchableOpacity>
+        <View style={styles.container}>
+            <View style={styles.imgView}>
+                <TouchableOpacity onPress={() => incremementScreen()}>
+                    <OnboardingComponent image={screen} />
+                </TouchableOpacity>
+            </View>
+            
+        </View>
+            
+        
         
     );
 }
@@ -38,6 +45,12 @@ const styles = StyleSheet.create({
         height: Metrics.screenHeight,
         width: Metrics.screenWidth,
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
     },
+    imgView: {
+        height: 500,
+        width: Metrics.screenWidth,
+        alignItems: 'center',
+        marginTop: 250,
+    }
 });
