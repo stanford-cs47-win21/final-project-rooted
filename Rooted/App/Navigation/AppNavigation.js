@@ -149,6 +149,7 @@ export default function AppNavigation() {
             }
         }
         checkBool();
+        AsyncStorage.clear();
     }, [])
 
     if (loading) {
