@@ -47,7 +47,6 @@ export default function LogAction( {route, navigation} ) {
                         onChangeText={ (text) => {
                             setDescription(text);
                         }}
-                        multiline={true}
                         placeholder={"Caption your action"}
                         style={styles.captionInput}>
                     </TextInput>
@@ -124,20 +123,22 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     caption : {
-        height: Metrics.screenHeight * .1,
-        alignContent: "center",
-        justifyContent: 'center',   
+        height: Metrics.screenHeight * .1,   
         marginBottom: 10,
+        backgroundColor: Colors.lightGrey,
+        height: Metrics.screenHeight * .08,
+        width: Metrics.screenWidth  * .85,
+        borderRadius: 15,
     },
     captionInput : {
         backgroundColor: Colors.lightGrey,
-        height: Metrics.screenHeight * .08,
+        height: Metrics.screenHeight * .035,
         width: Metrics.screenWidth  * .85,
         borderRadius: 15,
         borderLeftWidth: 10,
         borderTopWidth: 5,
         borderRightWidth: 10,
-        borderColor: Colors.lightGrey
+        borderColor: Colors.lightGrey,
     },
     picker : {
         marginTop: 5,

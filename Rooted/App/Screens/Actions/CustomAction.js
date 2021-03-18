@@ -32,7 +32,6 @@ export default function CustomAction( {navigation} ) {
                         onChangeText={ (text) => {
                             setDescription(text);
                         }}
-                        multiline={true}
                         placeholder={"Description"}
                         style={styles.descriptionInput}>
                     </TextInput>
@@ -108,9 +107,10 @@ const styles = StyleSheet.create({
         width: Metrics.screenWidth * 0.9,
     },
     description : {
+        backgroundColor: Colors.lightGrey,
         height: Metrics.screenHeight * .1,
-        alignContent: "center",
-        justifyContent: 'center',   
+        width: Metrics.screenWidth  * .9,
+        borderRadius: 15,
         margin: 20
     },
     
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     },
     descriptionInput : {
         backgroundColor: Colors.lightGrey,
-        height: Metrics.screenHeight * .1,
+        height: Metrics.screenHeight * .04,
         width: Metrics.screenWidth  * .9,
         borderRadius: 15,
         borderLeftWidth: 10,
