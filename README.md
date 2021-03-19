@@ -5,6 +5,7 @@ We created our high-fidelity prototype using React Native and Expo. The app is o
 
 ## Installing and Operating Rooted
 We recommend accessing Rooted with an iOS device, namely an iPhone X or iPhone 11 Pro. To download and run Rooted, follow these steps:
+
 1. Download "Expo Go" from the App Store
 2. Sign in with username: rootedgreenwork@gmail.com / password: rooted123
 3. In your phone browser, visit: https://expo.io/@rootedgreenwork/Rooted
@@ -13,6 +14,7 @@ We recommend accessing Rooted with an iOS device, namely an iPhone X or iPhone 1
 ## Limitations
 ### Hard Coded Elements
 Our high-fidelity prototype is a work in progress! To optimize the user experience at this stage of development, we implemented a few hard coded features.
+
 1. When logging and creating a custom action, the image field automatically populates with a recycling photo, rather than opening to the user's camera roll.
 2. The user can only post as Clara MacAvoy.
 3. The 3 posts in the feed are preset.
@@ -21,6 +23,7 @@ Our high-fidelity prototype is a work in progress! To optimize the user experien
 
 ## Next Steps
 We are excited to implement the following features in the near future!
+
 1. Requesting to join teams and creating new teams.
 2. The join challenges task flow (although, this was not 1 of our 3 tasks).
 3. Provide additional stores for the user to redeem their balance at.
